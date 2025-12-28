@@ -3,7 +3,7 @@ import { FaUser, FaCode, FaDatabase, FaBookOpen, FaAward, FaMapMarkerAlt } from 
 
 export default function AboutMe() {
     return (
-        <div className="space-y-8">
+        <div className="space-y-12">
             {/* Introduction Card */}
             <div className="bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-xl p-6">
                 <div className="flex items-start gap-4">
@@ -163,7 +163,7 @@ export default function AboutMe() {
             </section>
 
             {/* Journey Section */}
-            <section>
+            <section className="pb-12">
                 <div className="flex items-center gap-3 mb-6">
                     <FaMapMarkerAlt className="text-red-400 text-2xl" />
                     <h2 className="text-2xl font-bold text-white">My Journey</h2>

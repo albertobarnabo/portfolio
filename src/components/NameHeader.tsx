@@ -1,30 +1,14 @@
+"use client";
+
 import React from "react";
 
-export default function NameHeader() {
-    return (
-        <>
-            <h1 className="name">
-                Alberto Barnabò
-            </h1>
+const NameHeader = () => {
+  return (
+    <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-2 font-display">
+      <span className="text-white">Alberto </span>
+      <span className="text-gradient">Barnabò</span>
+    </h1>
+  );
+};
 
-            <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        .name {
-          font-family: 'Roboto', sans-serif; /* or any font you want */
-          font-size: 4rem;
-          text-align: center;
-          opacity: 0;
-          animation: fadeIn 3s forwards;
-        }
-      `}</style>
-        </>
-    );
-}
+export default NameHeader;

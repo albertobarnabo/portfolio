@@ -73,7 +73,7 @@ export default function Contact() {
                                 Based in Frankfurt, Germany
                             </p>
                             <p className="text-slate-400 text-sm mt-1">
-                                Working at the European Central Bank • Open to remote opportunities
+                                Working at the European Central Bank
                             </p>
                         </div>
                     </div>
