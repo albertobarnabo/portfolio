@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import BookOutlineIcon from "@/icons/BookOutlineIcon";
 import BookSolidIcon from "@/icons/BookSolidIcon";
 import { useState } from "react";
