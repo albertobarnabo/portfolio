@@ -41,7 +41,7 @@ export default function Home() {
         <div className="relative z-10">
           
           {/* Profile Content */}
-          <div className="flex flex-col items-center lg:items-start space-y-8 mt-8 lg:mt-0 animate-slide-up">
+          <div className="flex flex-col items-center space-y-8 mt-8 lg:mt-0 animate-slide-up">
             
             {/* Image Container with Glow */}
             <div className="relative group w-full flex justify-center lg:justify-start"> 
@@ -60,7 +60,7 @@ export default function Home() {
                </div>
             </div>
 
-            <div className="text-center lg:text-left space-y-4">
+            <div className="text-center space-y-4">
               <NameHeader />
               <div className="space-y-2">
                 <h2 className="text-2xl lg:text-3xl font-display font-light tracking-wide text-zinc-100">
@@ -73,7 +73,7 @@ export default function Home() {
             </div>
 
             {/* Navigation Pills */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               {[
                 { id: "about", label: "About", icon: selected === "about" ? <BookSolidIcon /> : <BookOutlineIcon /> },
                 { id: "tools", label: "Stack", icon: selected === "tools" ? <ToolSolidIcon /> : <ToolOutlineIcon /> },
@@ -97,7 +97,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hidden lg:block text-zinc-400 text-sm font-mono mt-auto pt-8">
+          <div className="hidden lg:block text-zinc-400 text-sm font-mono mt-auto pt-8 text-center">
             © {new Date().getFullYear()} Alberto Barnabò
           </div>
         </div>
