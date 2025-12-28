@@ -60,7 +60,7 @@ export default function CircularGallery({ images }: CircularGalleryProps) {
         })}
       </div>
       
-      <div className="absolute -bottom-8 lg:-bottom-3 text-white/40 text-xs font-mono tracking-widest animate-pulse">
+      <div className="absolute -bottom-3 lg:-bottom-3 text-white/40 text-xs font-mono tracking-widest animate-pulse">
         CLICK TO ROTATE
       </div>
     </div>
