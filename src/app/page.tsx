@@ -51,10 +51,10 @@ export default function Home() {
                <div className="relative w-full h-[300px] flex items-center justify-center">
                   <CircularGallery 
                     images={[
+                      "/ffm.jpg",
+                      "/archery.jpeg",
                       "/profile_photo.jpg",
                       "/bce.jpg",
-                      "/ffm.jpg",
-                      "/hua_shan.jpg"
                     ]} 
                   />
                </div>
