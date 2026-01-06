@@ -34,9 +34,9 @@ export default function Home() {
   return (
     <div className="dark min-h-screen w-full flex flex-col lg:flex-row overflow-hidden">
       {/* Left Panel: Profile & Navigation with Gradient Background */}
-      <div className="w-full lg:w-5/12 xl:w-1/3 flex flex-col justify-between p-8 lg:p-12 relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <div className="w-full lg:w-5/12 xl:w-1/3 flex flex-col justify-between p-8 lg:p-12 relative bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]">
         {/* Animated gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-pink-600/20 opacity-50 animate-gradient"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-blue-500/5 opacity-50 animate-gradient"></div>
         
         <div className="relative z-10">
           

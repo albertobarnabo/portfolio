@@ -23,7 +23,7 @@ export default function AboutMe() {
                                 and one from Xi&apos;an Jiaotong University through a prestigious double degree program.
                             </p>
                             <p>
-                                Currently, I work in the Information Systems division of the European Central Bank in Frankfurt.
+                                Currently, I work as an AI engineer for the European Central Bank in Frankfurt.
                             </p>
                         </div>
                     </div>
@@ -206,8 +206,7 @@ export default function AboutMe() {
                             <h4 className="font-semibold text-orange-400 mb-2">Professional Experience</h4>
                             <p>
                                 After graduation, worked briefly at Capgemini in Milan before joining the European Central Bank
-                                in Frankfurt&apos;s Information Systems division. Currently contributing to critical financial
-                                technology infrastructure and innovative solutions.
+                                in Frankfurt&apos;s Information Systems division. Currently working in the internal AI team, where we develop and maintain AI tools to be used internally in the bank.
                             </p>
                         </div>
 
