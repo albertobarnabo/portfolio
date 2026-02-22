@@ -11,40 +11,35 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        navy: {
-          900: "#020617",
-          800: "#0f172a",
-        },
-        "electric-blue": {
-          400: "#60a5fa",
-          500: "#3b82f6",
-        },
-        "neon-purple": {
-          400: "#c084fc",
-          500: "#a855f7",
+        // Refined neutral palette — Apple dark style
+        surface: {
+          50:  "#fafafa",
+          100: "#f4f4f5",
+          900: "#0c0c0e",
+          950: "#080809",
         },
       },
+      fontFamily: {
+        display: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        mono:    ["var(--font-geist-mono)", "monospace"],
+      },
       animation: {
-        aurora: "aurora 60s linear infinite",
-        "fade-in": "fadeIn 1s ease-out forwards",
-        "slide-up": "slideUp 0.8s ease-out forwards",
+        aurora:       "aurora 60s linear infinite",
+        "fade-in":    "fade-in 0.7s ease-out both",
+        "photo-fade": "photo-fade-in 0.5s ease-out both",
       },
       keyframes: {
         aurora: {
-          from: {
-            backgroundPosition: "50% 50%, 50% 50%",
-          },
-          to: {
-            backgroundPosition: "350% 50%, 350% 50%",
-          },
+          from: { backgroundPosition: "50% 50%, 50% 50%" },
+          to:   { backgroundPosition: "350% 50%, 350% 50%" },
         },
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        slideUp: {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
+        "fade-in": {
+          "0%":   { opacity: "0", transform: "translateY(12px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "photo-fade-in": {
+          "0%":   { opacity: "0" },
+          "100%": { opacity: "1" },
         },
       },
     },
@@ -52,13 +47,10 @@ module.exports = {
   plugins: [addVariablesForColors],
 };
 
-// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
 function addVariablesForColors({ addBase, theme }) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
-  addBase({
-    ":root": newVars,
-  });
+  addBase({ ":root": newVars });
 }

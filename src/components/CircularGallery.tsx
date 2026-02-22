@@ -1,67 +1,78 @@
 "use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React, { useState, useCallback } from "react";
+import Image from "next/image";
 
 interface CircularGalleryProps {
   images: string[];
 }
 
 export default function CircularGallery({ images }: CircularGalleryProps) {
-  const [rotationIndex, setRotationIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fading, setFading] = useState(false);
 
-  const n = images.length;
-  const theta = 360 / n;
-  const radius = 280; 
-
-  const rotateCarousel = (e: React.MouseEvent) => {
-    // Prevent any weird child bubbling issues
-    e.stopPropagation();
-    setRotationIndex((prev) => prev + 1);
-  };
+  const cyclePhoto = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      if (fading) return;
+      setFading(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+        setFading(false);
+      }, 260);
+    },
+    [fading, images.length]
+  );
 
   return (
-    // 1. We put the onClick on this outer, flat DIV. It never moves, so it's always clickable.
-    <div 
-      className="relative w-full h-full flex items-center justify-center perspective-1000 z-20 cursor-pointer"
-      onClick={rotateCarousel}
+    <div
+      className="relative w-full h-full flex items-center justify-center cursor-pointer select-none"
+      onClick={cyclePhoto}
+      title="Click to see another photo"
     >
-      <div 
-        className="relative w-56 h-56 lg:w-64 lg:h-64 preserve-3d transition-transform duration-1000 pointer-events-none" 
-        style={{ 
-          transform: `rotateY(${rotationIndex * -theta}deg)`,
-          transformStyle: 'preserve-3d' 
+      {/* Photo */}
+      <div
+        className="relative w-full h-full rounded-2xl overflow-hidden photo-blend"
+        style={{
+          transition: "opacity 0.28s ease",
+          opacity: fading ? 0 : 1,
         }}
       >
-        {images.map((src, index) => {
-          const rotation = theta * index;
-          return (
-            <div
-              key={index}
-              className="absolute inset-0 w-full h-full ring-4 ring-white/10 rounded-2xl shadow-2xl overflow-hidden bg-black/50"
-              style={{
-                // translateZ(radius) pushes images OUT from the center
-                transform: `rotateY(${rotation}deg) translateZ(${radius}px)`,
-                backfaceVisibility: 'visible',
-                WebkitBackfaceVisibility: 'visible'
-              }}
-            >
-              <Image
-                src={src}
-                alt={`Gallery Image ${index + 1}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 192px, 256px"
-                priority={index === 0}
-              />
-              <div className="absolute inset-0 bg-black/20"></div>
-            </div>
-          );
-        })}
+        <Image
+          key={currentIndex}
+          src={images[currentIndex]}
+          alt={`Photo ${currentIndex + 1}`}
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 768px) 80vw, 40vw"
+          priority={currentIndex === 0}
+        />
+        {/* Subtle dark inner vignette for depth */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 70% at 50% 40%, transparent 55%, rgba(0,0,0,0.25) 100%)",
+          }}
+        />
       </div>
-      
-      <div className="absolute -bottom-3 lg:-bottom-3 text-white/40 text-xs font-mono tracking-widest animate-pulse">
-        Click on the photo to see more!
+
+      {/* Dot indicators */}
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+        {images.map((_, i) => (
+          <span
+            key={i}
+            className="block rounded-full transition-all duration-300"
+            style={{
+              width: i === currentIndex ? "18px" : "5px",
+              height: "5px",
+              background:
+                i === currentIndex
+                  ? "rgba(255,255,255,0.8)"
+                  : "rgba(255,255,255,0.25)",
+            }}
+          />
+        ))}
       </div>
     </div>
   );
