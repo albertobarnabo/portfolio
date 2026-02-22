@@ -20,22 +20,23 @@ export default function Contact() {
       <div className="absolute inset-0 z-[3] bg-gradient-to-r from-[#060810]/80 via-transparent to-[#060810]/80" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-10 w-full">
-        {/* Label */}
-        <div className="label-mono text-[#5b8ef0] mb-6 flex items-center gap-3 animate-fade-up">
-          <span className="w-8 h-px bg-[#5b8ef0]/60" />
-          Contact
+        <div className="flex flex-col items-end text-right">
+          {/* Label */}
+          <div className="label-mono text-[#5b8ef0] mb-6 flex items-center gap-3 animate-fade-up">
+            Contact
+            <span className="w-8 h-px bg-[#5b8ef0]/60" />
+          </div>
+
+          {/* Headline */}
+          <h2 className="text-section-head text-[clamp(2.5rem,6vw,4rem)] text-white mb-4 animate-fade-up delay-100">
+            Get In Touch
+          </h2>
+          <p className="text-[#8a94b0] text-[1.05rem] leading-relaxed max-w-xl mb-12 animate-fade-up delay-200">
+            I&apos;m always open to discussing new opportunities, interesting
+            projects, or just having a conversation about technology and
+            innovation.
+          </p>
         </div>
-
-        {/* Headline */}
-        <h2 className="text-section-head text-[clamp(2.5rem,6vw,4rem)] text-white mb-4 animate-fade-up delay-100">
-          Get In Touch
-        </h2>
-        <p className="text-[#8a94b0] text-[1.05rem] leading-relaxed max-w-xl mb-12 animate-fade-up delay-200">
-          I&apos;m always open to discussing new opportunities, interesting
-          projects, or just having a conversation about technology and
-          innovation.
-        </p>
-
         {/* Contact cards */}
         <div className="grid sm:grid-cols-2 gap-4 mb-6 animate-fade-up delay-300">
           {/* Email */}
@@ -78,7 +79,6 @@ export default function Contact() {
             </div>
           </a>
         </div>
-
         {/* Location */}
         <div className="glass rounded-2xl p-6 flex items-start gap-4 mb-10 animate-fade-up delay-400">
           <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/08">
@@ -92,35 +92,6 @@ export default function Contact() {
             <p className="text-[#4a5168] text-sm mt-0.5">
               Working at the European Central Bank
             </p>
-          </div>
-        </div>
-
-        {/* CTA bar */}
-        <div className="glass-heavy rounded-2xl p-8 text-center animate-fade-up delay-500">
-          <h3
-            className="text-white text-xl font-bold mb-2"
-            style={{ letterSpacing: "-0.02em" }}
-          >
-            Let&apos;s Work Together
-          </h3>
-          <p className="text-[#8a94b0] text-sm leading-relaxed mb-6 max-w-md mx-auto">
-            Whether you have a project in mind, want to collaborate, or just
-            want to say hello, I&apos;d love to hear from you!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="mailto:alberto.barnabo@gmail.com" className="btn-primary">
-              <FaEnvelope className="text-xs" />
-              Send Email
-            </a>
-            <a
-              href="https://www.linkedin.com/in/alberto-barnab%C3%B2-9a003817b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost"
-            >
-              <FaLinkedin className="text-xs" />
-              Connect on LinkedIn
-            </a>
           </div>
         </div>
       </div>
