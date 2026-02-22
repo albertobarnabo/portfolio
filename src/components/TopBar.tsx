@@ -55,7 +55,7 @@ export default function TopBar() {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden xl:flex items-center gap-7">
+        <nav className="hidden xl:flex absolute left-1/2 -translate-x-1/2 items-center gap-7">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -68,17 +68,6 @@ export default function TopBar() {
         </nav>
 
         <div className="flex items-center gap-4">
-          {/* Fix #1: was hidden xl:inline-flex — keeping it, but ensuring no
-              accidental visibility on mobile. xl:inline-flex is correct and
-              should already hide it; if it wasn't working, it was likely a
-              Tailwind config issue. The class is intentionally left as-is. */}
-          <a
-            href="#contact"
-            className="btn-primary text-base md:text-lg py-3 md:py-4 px-6 md:px-10 hidden xl:inline-flex"
-          >
-            Get in touch
-          </a>
-
           {/* Mobile Menu Toggle */}
           <button
             className="xl:hidden text-white p-2"
