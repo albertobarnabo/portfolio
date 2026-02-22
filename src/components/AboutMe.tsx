@@ -324,7 +324,7 @@ export default function AboutMe() {
               <TimelineEntry
                 year="2021–2024"
                 title="Double Master's Degree"
-                body="Completed a unique double degree program: one year at Politecnico di Milano and one year at Xi'an Jiaotong University in China. This international experience enriched my cultural perspective and global approach to engineering challenges."
+                body="Completed a unique double degree program: one year at Politecnico di Milano and two years at Xi'an Jiaotong University in China. This international experience enriched my cultural perspective and global approach to engineering challenges. During this period I worked as an AI researcher on NLP and Large Language Models, whose results are presented in my Master's Thesis."
                 color="#c084fc"
               />
               <TimelineEntry
