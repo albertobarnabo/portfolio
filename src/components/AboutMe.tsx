@@ -333,12 +333,6 @@ export default function AboutMe() {
                 body="After graduation, worked briefly at Capgemini in Milan before joining the European Central Bank in Frankfurt's Information Systems division. Currently working in the internal AI team, where we develop and maintain AI tools to be used internally in the bank."
                 color="#fb923c"
               />
-              <TimelineEntry
-                year="Always"
-                title="Continuous Learning"
-                body="Always eager to explore new technologies, share knowledge, and collaborate on innovative projects. Passionate about the intersection of technology, data, and real-world problem solving."
-                color="#67e8f9"
-              />
             </div>
 
             {/* Left: headline */}
