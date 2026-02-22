@@ -1,74 +1,80 @@
-import { Button } from "@mui/material";
-import Image from 'next/image';
+import Image from "next/image";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 type ToolCardProps = {
-    name: string;
-    image: string;
-    description: string;
-    link: string;
-    technologies?: string[];
-    gradient?: string;
+  name: string;
+  image: string;
+  description: string;
+  link: string;
+  technologies?: string[];
+  accentColor?: string;
 };
 
-export default function ToolCard({ name, image, description, link, technologies = [], gradient = "from-slate-800/50 to-slate-700/50" }: ToolCardProps) {
-    return (
-        <div className={`bg-gradient-to-br ${gradient} border border-slate-600/30 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group`}>
-            <div className="flex flex-col h-full">
-                {/* Header with Logo and Title */}
-                <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-slate-800/50 rounded-xl group-hover:bg-slate-700/50 transition-colors">
-                        <Image
-                            width={48}
-                            height={48}
-                            src={`/${image}`}
-                            alt={name}
-                            className="w-12 h-12 object-contain"
-                        />
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
-                            {name}
-                        </h3>
-                    </div>
-                </div>
-
-                {/* Description */}
-                <p className="text-slate-300 leading-relaxed mb-4 flex-grow">
-                    {description}
-                </p>
-
-                {/* Technologies */}
-                {technologies.length > 0 && (
-                    <div className="mb-6">
-                        <div className="flex flex-wrap gap-2">
-                            {technologies.map((tech, index) => (
-                                <span
-                                    key={index}
-                                    className="px-3 py-1 bg-slate-700/50 text-slate-300 rounded-full text-sm border border-slate-600/30"
-                                >
-                                    {tech}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* Action Button */}
-                <div className="mt-auto">
-                    <Button
-                        className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg px-6 py-3 rounded-lg hover:shadow-emerald-500/25 hover:from-emerald-500 hover:to-teal-500 transition-all duration-300 flex items-center justify-center gap-2 font-medium"
-                        color="inherit"
-                        href={link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Try It Out
-                        <FaExternalLinkAlt className="text-sm" />
-                    </Button>
-                </div>
-            </div>
+export default function ToolCard({
+  name,
+  image,
+  description,
+  link,
+  technologies = [],
+  accentColor = "rgba(91,142,240,0.35)",
+}: ToolCardProps) {
+  return (
+    <div className="glass glass-hover rounded-2xl p-6 md:p-8 flex flex-col h-full transition-all duration-300">
+      {/* Header */}
+      <div className="flex items-center gap-3 md:gap-4 mb-5 md:mb-6">
+        <div
+          className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.09)",
+          }}
+        >
+          <Image
+            width={40}
+            height={40}
+            src={`/${image}`}
+            alt={name}
+            className="w-8 h-8 md:w-10 md:h-10 object-contain"
+          />
         </div>
-    );
-}
+        <h3
+          className="text-lg md:text-xl font-bold text-white"
+          style={{ letterSpacing: "-0.02em" }}
+        >
+          {name}
+        </h3>
+      </div>
 
+      {/* Description */}
+      <p className="text-[#8a94b0] leading-relaxed mb-6 flex-grow text-[0.9rem] md:text-[0.95rem]">
+        {description}
+      </p>
+
+      {/* Tags */}
+      {technologies.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
+          {technologies.map((tech, i) => (
+            <span
+              key={i}
+              className="glass-tag label-mono text-[#8a94b0] rounded-full px-2 md:px-3 py-1 text-[0.65rem] md:text-[0.7rem]"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* CTA */}
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-ghost w-full justify-center mt-auto py-3 md:py-4"
+        style={{ borderColor: accentColor, color: "#eef2ff" }}
+      >
+        Try It Out
+        <FaExternalLinkAlt className="text-xs opacity-60 ml-2" />
+      </a>
+    </div>
+  );
+}

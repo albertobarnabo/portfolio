@@ -1,111 +1,129 @@
-import { FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
+import Image from "next/image";
+import { FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Contact() {
-    return (
-        <div className="space-y-8">
-            {/* Header */}
-            <div className="text-center">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                    <FaPaperPlane className="text-blue-400 text-3xl" />
-                    <h2 className="text-3xl font-bold text-white">Get In Touch</h2>
-                </div>
-                <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-                    I&apos;m always open to discussing new opportunities, interesting projects,
-                    or just having a conversation about technology and innovation.
-                </p>
-            </div>
+  return (
+    <section
+      id="contact"
+      className="photo-bg noise-bg relative min-h-[80vh] flex items-center py-32"
+    >
+      {/* Background: Frankfurt photo */}
+      <Image
+        src="/archery.jpeg"
+        alt="Archery"
+        fill
+        className="object-cover object-top"
+        style={{ position: "absolute" }}
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-[#060810]/90 via-[#060810]/75 to-[#060810]/95" />
+      <div className="absolute inset-0 z-[3] bg-gradient-to-r from-[#060810]/80 via-transparent to-[#060810]/80" />
 
-            {/* Contact Cards */}
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                {/* Email Card */}
-                <div className="bg-gradient-to-r from-blue-600/10 to-cyan-600/10 border border-blue-500/20 rounded-xl p-6 hover:border-blue-400/30 transition-all duration-300 group">
-                    <div className="flex items-start gap-4">
-                        <div className="p-3 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors">
-                            <FaEnvelope className="text-blue-400 text-xl" />
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="text-lg font-semibold text-white mb-2">Email</h3>
-                            <p className="text-slate-300 mb-3">Drop me a message anytime</p>
-                            <a
-                                href="mailto:alberto.barnabo@gmail.com"
-                                className="text-blue-400 hover:text-blue-300 transition-colors font-medium inline-flex items-center gap-2"
-                            >
-                                alberto.barnabo@gmail.com
-                                <FaEnvelope className="text-sm" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* LinkedIn Card */}
-                <div className="bg-gradient-to-r from-blue-700/10 to-indigo-600/10 border border-blue-600/20 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-300 group">
-                    <div className="flex items-start gap-4">
-                        <div className="p-3 bg-blue-600/20 rounded-lg group-hover:bg-blue-600/30 transition-colors">
-                            <FaLinkedin className="text-blue-500 text-xl" />
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="text-lg font-semibold text-white mb-2">LinkedIn</h3>
-                            <p className="text-slate-300 mb-3">Connect with me professionally</p>
-                            <a
-                                href="https://www.linkedin.com/in/alberto-barnab%C3%B2-9a003817b/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-500 hover:text-blue-400 transition-colors font-medium inline-flex items-center gap-2"
-                            >
-                                Alberto Barnabò
-                                <FaLinkedin className="text-sm" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Location Card */}
-            <div className="max-w-4xl mx-auto">
-                <div className="bg-gradient-to-r from-green-600/10 to-emerald-600/10 border border-green-500/20 rounded-xl p-6">
-                    <div className="flex items-start gap-4">
-                        <div className="p-3 bg-green-500/20 rounded-lg">
-                            <FaMapMarkerAlt className="text-green-400 text-xl" />
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="text-lg font-semibold text-white mb-2">Location</h3>
-                            <p className="text-slate-300">
-                                Based in Frankfurt, Germany
-                            </p>
-                            <p className="text-slate-400 text-sm mt-1">
-                                Working at the European Central Bank
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Call to Action */}
-            <div className="text-center bg-gradient-to-r from-slate-800/30 to-slate-700/30 border border-slate-600/30 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">Let&apos;s Work Together</h3>
-                <p className="text-slate-300 mb-4">
-                    Whether you have a project in mind, want to collaborate, or just want to say hello,
-                    I&apos;d love to hear from you!
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a
-                        href="mailto:alberto.barnabo@gmail.com"
-                        className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300 font-medium inline-flex items-center justify-center gap-2"
-                    >
-                        <FaEnvelope />
-                        Send Email
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/alberto-barnab%C3%B2-9a003817b/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gradient-to-r from-blue-700 to-indigo-700 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-indigo-600 transition-all duration-300 font-medium inline-flex items-center justify-center gap-2"
-                    >
-                        <FaLinkedin />
-                        Connect on LinkedIn
-                    </a>
-                </div>
-            </div>
+      <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-10 w-full">
+        {/* Label */}
+        <div className="label-mono text-[#5b8ef0] mb-6 flex items-center gap-3 animate-fade-up">
+          <span className="w-8 h-px bg-[#5b8ef0]/60" />
+          Contact
         </div>
-    );
+
+        {/* Headline */}
+        <h2 className="text-section-head text-[clamp(2.5rem,6vw,4rem)] text-white mb-4 animate-fade-up delay-100">
+          Get In Touch
+        </h2>
+        <p className="text-[#8a94b0] text-[1.05rem] leading-relaxed max-w-xl mb-12 animate-fade-up delay-200">
+          I&apos;m always open to discussing new opportunities, interesting
+          projects, or just having a conversation about technology and
+          innovation.
+        </p>
+
+        {/* Contact cards */}
+        <div className="grid sm:grid-cols-2 gap-4 mb-6 animate-fade-up delay-300">
+          {/* Email */}
+          <a
+            href="mailto:alberto.barnabo@gmail.com"
+            className="glass glass-hover rounded-2xl p-6 group flex items-start gap-4 no-underline"
+          >
+            <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/08 group-hover:bg-[#5b8ef0]/15 transition-colors">
+              <FaEnvelope className="text-[#5b8ef0] text-lg" />
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">Email</h3>
+              <p className="text-[#8a94b0] text-sm mb-2">
+                Drop me a message anytime
+              </p>
+              <span className="text-[#5b8ef0] text-sm font-medium">
+                alberto.barnabo@gmail.com
+              </span>
+            </div>
+          </a>
+
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/alberto-barnab%C3%B2-9a003817b/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass glass-hover rounded-2xl p-6 group flex items-start gap-4 no-underline"
+          >
+            <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/08 group-hover:bg-[#9b6ff0]/15 transition-colors">
+              <FaLinkedin className="text-[#9b6ff0] text-lg" />
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">LinkedIn</h3>
+              <p className="text-[#8a94b0] text-sm mb-2">
+                Connect with me professionally
+              </p>
+              <span className="text-[#9b6ff0] text-sm font-medium">
+                Alberto Barnabò
+              </span>
+            </div>
+          </a>
+        </div>
+
+        {/* Location */}
+        <div className="glass rounded-2xl p-6 flex items-start gap-4 mb-10 animate-fade-up delay-400">
+          <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/08">
+            <FaMapMarkerAlt className="text-[#3ecfa4] text-lg" />
+          </div>
+          <div>
+            <h3 className="text-white font-semibold mb-1">Location</h3>
+            <p className="text-[#8a94b0] text-sm">
+              Based in Frankfurt, Germany
+            </p>
+            <p className="text-[#4a5168] text-sm mt-0.5">
+              Working at the European Central Bank
+            </p>
+          </div>
+        </div>
+
+        {/* CTA bar */}
+        <div className="glass-heavy rounded-2xl p-8 text-center animate-fade-up delay-500">
+          <h3
+            className="text-white text-xl font-bold mb-2"
+            style={{ letterSpacing: "-0.02em" }}
+          >
+            Let&apos;s Work Together
+          </h3>
+          <p className="text-[#8a94b0] text-sm leading-relaxed mb-6 max-w-md mx-auto">
+            Whether you have a project in mind, want to collaborate, or just
+            want to say hello, I&apos;d love to hear from you!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="mailto:alberto.barnabo@gmail.com" className="btn-primary">
+              <FaEnvelope className="text-xs" />
+              Send Email
+            </a>
+            <a
+              href="https://www.linkedin.com/in/alberto-barnab%C3%B2-9a003817b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              <FaLinkedin className="text-xs" />
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

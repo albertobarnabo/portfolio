@@ -1,64 +1,51 @@
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./src/**/*.{ts,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"SF Mono"', '"Fira Mono"', 'monospace'],
+      },
       colors: {
-        navy: {
-          900: "#020617",
-          800: "#0f172a",
+        canvas: "#060810",
+        layer: "#0a0e1a",
+        accent: {
+          blue:   "#5b8ef0",
+          violet: "#9b6ff0",
+          teal:   "#3ecfa4",
         },
-        "electric-blue": {
-          400: "#60a5fa",
-          500: "#3b82f6",
-        },
-        "neon-purple": {
-          400: "#c084fc",
-          500: "#a855f7",
-        },
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
       animation: {
-        aurora: "aurora 60s linear infinite",
-        "fade-in": "fadeIn 1s ease-out forwards",
-        "slide-up": "slideUp 0.8s ease-out forwards",
+        "fade-up":     "fade-up 0.7s cubic-bezier(0.22,1,0.36,1) both",
+        "fade-in":     "fade-in 0.9s ease both",
+        "pulse-glow":  "pulse-glow 6s ease-in-out infinite",
+        aurora:        "aurora 18s ease infinite",
       },
       keyframes: {
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(28px)" },
+          to:   { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to:   { opacity: "1" },
+        },
+        "pulse-glow": {
+          "0%,100%": { opacity: "0.4", transform: "scale(1)" },
+          "50%":     { opacity: "0.7", transform: "scale(1.08)" },
+        },
         aurora: {
-          from: {
-            backgroundPosition: "50% 50%, 50% 50%",
-          },
-          to: {
-            backgroundPosition: "350% 50%, 350% 50%",
-          },
-        },
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        slideUp: {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+          "0%":   { backgroundPosition: "0% 50%" },
+          "50%":  { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
         },
       },
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [],
 };
-
-// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
-function addVariablesForColors({ addBase, theme }) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
-  addBase({
-    ":root": newVars,
-  });
-}
