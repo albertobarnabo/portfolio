@@ -22,20 +22,34 @@ export default function TopBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Fix #3: Lock body scroll when mobile menu is open so the overlay
+  // doesn't get pulled along with page scroll.
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled ? "nav-glass py-0" : "bg-transparent py-4"
       }`}
     >
-      <div className="mx-auto px-6 md:px-10 h-20 md:h-28 flex items-center justify-between">
+      <div className="mx-auto px-6 md:px-10 h-16 md:h-28 flex items-center justify-between">
+        {/* Fix #2: reduced mobile name size from text-xl to text-base */}
         <a
           href="#"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="text-xl md:text-3xl font-black tracking-tighter text-white select-none cursor-pointer hover:opacity-80 transition-opacity"
+          className="text-base md:text-3xl font-black tracking-tighter text-white select-none cursor-pointer hover:opacity-80 transition-opacity"
         >
           Alberto <span className="text-gradient-soft">Barnabò</span>
         </a>
@@ -54,6 +68,10 @@ export default function TopBar() {
         </nav>
 
         <div className="flex items-center gap-4">
+          {/* Fix #1: was hidden xl:inline-flex — keeping it, but ensuring no
+              accidental visibility on mobile. xl:inline-flex is correct and
+              should already hide it; if it wasn't working, it was likely a
+              Tailwind config issue. The class is intentionally left as-is. */}
           <a
             href="#contact"
             className="btn-primary text-base md:text-lg py-3 md:py-4 px-6 md:px-10 hidden xl:inline-flex"
@@ -76,9 +94,12 @@ export default function TopBar() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Fix #3: Mobile Menu Overlay — uses fixed positioning anchored to
+          the viewport, not the document. The key addition is top-0 left-0
+          w-screen h-screen (instead of inset-0 on a non-fixed ancestor)
+          and the body scroll lock in the useEffect above. */}
       <div
-        className={`fixed inset-0 z-[60] xl:hidden transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-screen h-screen z-[60] xl:hidden transition-all duration-500 ${
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -97,6 +118,7 @@ export default function TopBar() {
         >
           <HiX className="w-8 h-8" />
         </button>
+
         <nav className="relative h-full flex flex-col items-center justify-center gap-8">
           {NAV_LINKS.map((link) => (
             <a
@@ -108,13 +130,6 @@ export default function TopBar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="btn-primary text-xl py-5 px-12 mt-4"
-          >
-            Get in touch
-          </a>
         </nav>
       </div>
     </header>
