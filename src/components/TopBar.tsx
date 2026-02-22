@@ -29,9 +29,16 @@ export default function TopBar() {
       }`}
     >
       <div className="mx-auto px-6 md:px-10 h-20 md:h-28 flex items-center justify-between">
-        <span className="text-2xl md:text-3xl font-black tracking-tighter text-white select-none">
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="text-xl md:text-3xl font-black tracking-tighter text-white select-none cursor-pointer hover:opacity-80 transition-opacity"
+        >
           Alberto <span className="text-gradient-soft">Barnabò</span>
-        </span>
+        </a>
 
         {/* Desktop Nav */}
         <nav className="hidden xl:flex items-center gap-7">
@@ -49,7 +56,7 @@ export default function TopBar() {
         <div className="flex items-center gap-4">
           <a
             href="#contact"
-            className="btn-primary text-base md:text-lg py-3 md:py-4 px-6 md:px-10 hidden sm:inline-flex"
+            className="btn-primary text-base md:text-lg py-3 md:py-4 px-6 md:px-10 hidden xl:inline-flex"
           >
             Get in touch
           </a>
@@ -81,6 +88,15 @@ export default function TopBar() {
           className="absolute inset-0 bg-[#060810]/95 backdrop-blur-xl"
           onClick={() => setMobileMenuOpen(false)}
         />
+
+        {/* Close Button */}
+        <button
+          className="absolute top-6 right-6 text-white p-2 z-[70]"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-label="Close menu"
+        >
+          <HiX className="w-8 h-8" />
+        </button>
         <nav className="relative h-full flex flex-col items-center justify-center gap-8">
           {NAV_LINKS.map((link) => (
             <a

@@ -48,7 +48,7 @@ export default function Hero() {
           {/* Label */}
           <div className="label-mono text-[#3ecfa4] mb-6 flex items-center gap-3">
             <span className="w-8 h-px bg-[#3ecfa4]/60 hidden md:block" />
-            AI Engineer · European Central Bank
+            Computer Science Engineer | AI Specialist
             <span className="w-8 h-px bg-[#3ecfa4]/60 md:hidden" />
           </div>
 
@@ -75,7 +75,7 @@ export default function Hero() {
 
           {/* Subheading */}
           <p className="text-[1.1rem] md:text-[1.15rem] text-[#8a94b0] font-light leading-relaxed max-w-xl mb-10">
-            Computer Science Engineer | AI Specialist
+            European Central Bank
           </p>
         </div>
       </div>
