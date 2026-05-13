@@ -36,7 +36,7 @@ export default function Tools() {
             name="Axion: The Headless Intelligence Kernel"
             image="axion-logo.jpeg"
             description="A governance layer that orchestrates autonomous agents via strict tool-calling security directives. Built on Rust and Serde, it synthesizes raw intent into verified, structured state—zero hallucinations, 100% integrity."
-            link="https://albertobarnabo.it/axion"
+            link="https://albertobarnabo.it/axion/"
             technologies={["Rust", "LLM", "Agentic Workflows", "Governance"]}
             accentColor="rgba(91,142,240,0.35)"
           />
