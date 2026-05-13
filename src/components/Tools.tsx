@@ -33,6 +33,14 @@ export default function Tools() {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-up delay-300">
           <ToolCard
+            name="Axion: The Headless Intelligence Kernel"
+            image="axion-logo.jpeg"
+            description="A governance layer that orchestrates autonomous agents via strict tool-calling security directives. Built on Rust and Serde, it synthesizes raw intent into verified, structured state—zero hallucinations, 100% integrity."
+            link="https://albertobarnabo.it/axion"
+            technologies={["Rust", "LLM", "Agentic Workflows", "Governance"]}
+            accentColor="rgba(91,142,240,0.35)"
+          />
+          <ToolCard
             name="InStockr"
             image="instockr-logo.png"
             description="Discover products available in physical stores near you. Find what you need in your local area with real-time availability."
@@ -48,6 +56,7 @@ export default function Tools() {
             technologies={["AI/ML", "Job Search", "Web Platform"]}
             accentColor="rgba(155,111,240,0.4)"
           />
+          
         </div>
 
         {/* CTA strip */}
