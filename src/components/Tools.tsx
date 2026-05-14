@@ -34,7 +34,7 @@ export default function Tools() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-up delay-300">
           <ToolCard
             name="Axion: The Headless Intelligence Kernel"
-            image="axion-logo.jpeg"
+            image="axion-logo.png"
             description="A governance layer that orchestrates autonomous agents via strict tool-calling security directives. Built on Rust and Serde, it synthesizes raw intent into verified, structured state—zero hallucinations, 100% integrity."
             link="https://albertobarnabo.it/axion/"
             technologies={["Rust", "LLM", "Agentic Workflows", "Governance"]}
