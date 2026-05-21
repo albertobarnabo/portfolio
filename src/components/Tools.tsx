@@ -36,7 +36,7 @@ export default function Tools() {
             name="Axion: The Headless Intelligence Kernel"
             image="axion-logo.png"
             description="A governance layer that orchestrates autonomous agents via strict tool-calling security directives. Built on Rust and Serde, it synthesizes raw intent into verified, structured state—zero hallucinations, 100% integrity."
-            link="https://albertobarnabo.it/axion/"
+            link="https://albertobarnabo.com/axion/"
             technologies={["Rust", "LLM", "Agentic Workflows", "Governance"]}
             accentColor="rgba(91,142,240,0.35)"
           />
@@ -52,7 +52,7 @@ export default function Tools() {
             name="InterVous"
             image="intervous_logo.png"
             description="Streamline your job search process with AI-powered assistance. Get personalized recommendations and insights."
-            link="https://albertobarnabo.it/intervous"
+            link="https://albertobarnabo.com/intervous"
             technologies={["AI/ML", "Job Search", "Web Platform"]}
             accentColor="rgba(155,111,240,0.4)"
           />
