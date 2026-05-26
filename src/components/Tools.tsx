@@ -33,10 +33,10 @@ export default function Tools() {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-up delay-300">
           <ToolCard
-            name="Axion: The Headless Intelligence Kernel"
+            name="OpalZero: The Headless Intelligence Kernel"
             image="axion-logo.png"
             description="A governance layer that orchestrates autonomous agents via strict tool-calling security directives. Built on Rust and Serde, it synthesizes raw intent into verified, structured state—zero hallucinations, 100% integrity."
-            link="https://albertobarnabo.com/axion/"
+            link="https://albertobarnabo.com/opal-zero/"
             technologies={["Rust", "LLM", "Agentic Workflows", "Governance"]}
             accentColor="rgba(91,142,240,0.35)"
           />
