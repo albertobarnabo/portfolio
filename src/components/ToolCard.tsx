@@ -8,6 +8,7 @@ type ToolCardProps = {
   link: string;
   technologies?: string[];
   accentColor?: string;
+  ctaLabel?: string;
 };
 
 export default function ToolCard({
@@ -17,6 +18,7 @@ export default function ToolCard({
   link,
   technologies = [],
   accentColor = "rgba(91,142,240,0.35)",
+  ctaLabel = "Try It Out",
 }: ToolCardProps) {
   return (
     <div className="glass glass-hover rounded-2xl p-6 md:p-8 flex flex-col h-full transition-all duration-300">
@@ -72,7 +74,7 @@ export default function ToolCard({
         className="btn-ghost w-full justify-center mt-auto py-3 md:py-4"
         style={{ borderColor: accentColor, color: "#eef2ff" }}
       >
-        Try It Out
+        {ctaLabel}
         <FaExternalLinkAlt className="text-xs opacity-60 ml-2" />
       </a>
     </div>

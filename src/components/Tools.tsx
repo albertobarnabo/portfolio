@@ -56,7 +56,33 @@ export default function Tools() {
             technologies={["AI/ML", "Job Search", "Web Platform"]}
             accentColor="rgba(155,111,240,0.4)"
           />
-          
+          <ToolCard
+            name="Fact-Checking Pipeline"
+            image="github-logo.svg"
+            description="Fact Checking pipeline for the FEVEROUS dataset implemented using LangChain"
+            link="https://github.com/albertobarnabo/Fact-Checking-Pipeline"
+            technologies={["Python", "RAG", "NLP", "LLM"]}
+            accentColor="rgba(91,142,240,0.35)"
+            ctaLabel="View on GitHub"
+          />
+          <ToolCard
+            name="Lean"
+            image="github-logo.svg"
+            description="A Claude skill that teaches Claude to find the clever path before taking the obvious one. 8× fewer tokens on the median real-world task — measured across 17 benchmarks."
+            link="https://github.com/albertobarnabo/lean"
+            technologies={["Claude Skill", "Token Optimization", "Agentic Workflows"]}
+            accentColor="rgba(62,207,164,0.4)"
+            ctaLabel="View on GitHub"
+          />
+          <ToolCard
+            name="ImageEqualizer"
+            image="github-logo.svg"
+            description="An Image equalizer in VHDL for black and white images. This project, from Politecnico di Milano, was graded 29/30."
+            link="https://github.com/albertobarnabo/ImageEqualizer"
+            technologies={["VHDL", "Digital Design", "Image Processing"]}
+            accentColor="rgba(155,111,240,0.4)"
+            ctaLabel="View on GitHub"
+          />
         </div>
 
         {/* CTA strip */}
