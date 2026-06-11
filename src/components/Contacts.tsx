@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaGithub } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -38,7 +38,7 @@ export default function Contact() {
           </p>
         </div>
         {/* Contact cards */}
-        <div className="grid sm:grid-cols-2 gap-4 mb-6 animate-fade-up delay-300">
+        <div className="grid sm:grid-cols-2 gap-4 mb-10 animate-fade-up delay-300">
           {/* Email */}
           <a
             href="mailto:alberto.barnabo@gmail.com"
@@ -78,20 +78,42 @@ export default function Contact() {
               </span>
             </div>
           </a>
-        </div>
-        {/* Location */}
-        <div className="glass rounded-2xl p-6 flex items-start gap-4 mb-10 animate-fade-up delay-400">
-          <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/08">
-            <FaMapMarkerAlt className="text-[#3ecfa4] text-lg" />
-          </div>
-          <div>
-            <h3 className="text-white font-semibold mb-1">Location</h3>
-            <p className="text-[#8a94b0] text-sm">
-              Based in Frankfurt, Germany
-            </p>
-            <p className="text-[#4a5168] text-sm mt-0.5">
-              Working at the European Central Bank
-            </p>
+
+          {/* GitHub */}
+          <a
+            href="https://github.com/albertobarnabo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass glass-hover rounded-2xl p-6 group flex items-start gap-4 no-underline"
+          >
+            <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/08 group-hover:bg-white/15 transition-colors">
+              <FaGithub className="text-white text-lg" />
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">GitHub</h3>
+              <p className="text-[#8a94b0] text-sm mb-2">
+                Check out my projects and code
+              </p>
+              <span className="text-white text-sm font-medium">
+                albertobarnabo
+              </span>
+            </div>
+          </a>
+
+          {/* Location */}
+          <div className="glass rounded-2xl p-6 group flex items-start gap-4">
+            <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/08 group-hover:bg-[#3ecfa4]/15 transition-colors">
+              <FaMapMarkerAlt className="text-[#3ecfa4] text-lg" />
+            </div>
+            <div>
+              <h3 className="text-white font-semibold mb-1">Location</h3>
+              <p className="text-[#8a94b0] text-sm mb-2">
+                Based in Frankfurt, Germany
+              </p>
+              <p className="text-[#3ecfa4] text-sm font-medium">
+                European Central Bank
+              </p>
+            </div>
           </div>
         </div>
       </div>

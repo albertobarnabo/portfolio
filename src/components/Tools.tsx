@@ -66,10 +66,10 @@ export default function Tools() {
             ctaLabel="View on GitHub"
           />
           <ToolCard
-            name="Lean"
-            image="github-logo.svg"
+            name="Lazy Cat"
+            image="lazy-cat.png"
             description="A Claude skill that teaches Claude to find the clever path before taking the obvious one. 8× fewer tokens on the median real-world task — measured across 17 benchmarks."
-            link="https://github.com/albertobarnabo/lean"
+            link="https://github.com/albertobarnabo/lazy-cat"
             technologies={["Claude Skill", "Token Optimization", "Agentic Workflows"]}
             accentColor="rgba(62,207,164,0.4)"
             ctaLabel="View on GitHub"
