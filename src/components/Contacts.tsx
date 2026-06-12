@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa";
+import { SiHuggingface } from "react-icons/si";
 
 export default function Contact() {
   return (
@@ -100,21 +101,26 @@ export default function Contact() {
             </div>
           </a>
 
-          {/* Location */}
-          <div className="glass rounded-2xl p-6 group flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/08 group-hover:bg-[#3ecfa4]/15 transition-colors">
-              <FaMapMarkerAlt className="text-[#3ecfa4] text-lg" />
+          {/* HuggingFace */}
+          <a
+            href="https://huggingface.co/albertobarnabo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass glass-hover rounded-2xl p-6 group flex items-start gap-4 no-underline"
+          >
+            <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/5 border border-white/08 group-hover:bg-[#FFB800]/15 transition-colors">
+              <SiHuggingface className="text-[#FFB800] text-lg" />
             </div>
             <div>
-              <h3 className="text-white font-semibold mb-1">Location</h3>
+              <h3 className="text-white font-semibold mb-1">HuggingFace</h3>
               <p className="text-[#8a94b0] text-sm mb-2">
-                Based in Frankfurt, Germany
+                Explore my AI/ML models
               </p>
-              <p className="text-[#3ecfa4] text-sm font-medium">
-                European Central Bank
-              </p>
+              <span className="text-[#FFB800] text-sm font-medium">
+                @albertobarnabo
+              </span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
