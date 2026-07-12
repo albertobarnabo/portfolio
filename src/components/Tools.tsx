@@ -33,18 +33,36 @@ export default function Tools() {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-up delay-300">
           <ToolCard
-            name="OpalZero: The Headless Intelligence Kernel"
+            name="Lazy Cat"
+            image="lazy-cat.png"
+            description="A Claude skill that teaches Claude to find the clever path before taking the obvious one. 47 git stars."
+            link="https://github.com/albertobarnabo/lazy-cat"
+            technologies={["Claude Skill", "Token Optimization", "Agentic Workflows"]}
+            accentColor="rgba(62,207,164,0.4)"
+            ctaLabel="View on GitHub"
+          />
+          <ToolCard
+            name="Fiduciary AI"
+            image="fiduciary.png"
+            description="A senior personal financial advisor: Qwen3-4B fine-tuned with LoRA + live market/news tools, fully local on Apple Silicon (MLX). More than 8k downloads on HuggingFace."
+            link="https://github.com/albertobarnabo/fiduciary"
+            technologies={["Fine-tuning", "Local LLM", "HuggingFace", "Financial Analysis"]}
+            accentColor="rgba(62,207,164,0.4)"
+            ctaLabel="View on GitHub"
+          />
+          <ToolCard
+            name="OpalZero"
             image="opalzero-logo.svg"
-            description="A governance layer that orchestrates autonomous agents via strict tool-calling security directives. Built on Rust and Serde, it synthesizes raw intent into verified, structured state—zero hallucinations, 100% integrity."
+            description="An AI orchestrator that operatesvia strict tool-calling security directives. Built on Rust and Serde, it synthesizes raw intent into verified, structured state—zero hallucinations, 100% integrity."
             link="https://albertobarnabo.com/opal-zero/"
             technologies={["Rust", "LLM", "Agentic Workflows", "Governance"]}
             accentColor="rgba(91,142,240,0.35)"
           />
           <ToolCard
-            name="InStockr"
-            image="instockr-logo.png"
-            description="Discover products available in physical stores near you. Find what you need in your local area with real-time availability."
-            link="https://instockr.dev/"
+            name="Fitz"
+            image="fitz-logo.svg"
+            description="Discover womens' clothing items available in physical stores near you. Find what you need in your local area with real-time availability."
+            link="https://fitzstore.eu/"
             technologies={["Web App", "Location Services", "Real-time Data"]}
             accentColor="rgba(62,207,164,0.4)"
           />
@@ -65,21 +83,23 @@ export default function Tools() {
             accentColor="rgba(91,142,240,0.35)"
             ctaLabel="View on GitHub"
           />
+          
           <ToolCard
-            name="Lazy Cat"
-            image="lazy-cat.png"
-            description="A Claude skill that teaches Claude to find the clever path before taking the obvious one. 8× fewer tokens on the median real-world task — measured across 17 benchmarks."
-            link="https://github.com/albertobarnabo/lazy-cat"
-            technologies={["Claude Skill", "Token Optimization", "Agentic Workflows"]}
-            accentColor="rgba(62,207,164,0.4)"
+            name="limn"
+            image="github-logo.svg"
+            description="I built myself a python library for plots and charts that is fast, simple and beautiful. It is a library that I use for my own projects and I wanted to share it with the community."
+            link="https://github.com/albertobarnabo/limn"
+            technologies={["Python", "Data Visualization", "Matplotlib"]}
+            accentColor="rgba(155,111,240,0.4)"
             ctaLabel="View on GitHub"
           />
+
           <ToolCard
-            name="ImageEqualizer"
+            name="manim-craft"
             image="github-logo.svg"
-            description="An Image equalizer in VHDL for black and white images. This project, from Politecnico di Milano, was graded 29/30."
-            link="https://github.com/albertobarnabo/ImageEqualizer"
-            technologies={["VHDL", "Digital Design", "Image Processing"]}
+            description="Two Claude skills that split 'make an animation that teaches' into its two actual problems, plus a blind A/B harness that measures whether they help:"
+            link="https://github.com/albertobarnabo/manim-craft"
+            technologies={["Claude", "Skills", "Manim"]}
             accentColor="rgba(155,111,240,0.4)"
             ctaLabel="View on GitHub"
           />

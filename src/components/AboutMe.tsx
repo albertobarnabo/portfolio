@@ -5,7 +5,7 @@ import { FaBookOpen } from "react-icons/fa";
 function Chip({ label, color }: { label: string; color: string }) {
   return (
     <span
-      className="glass-tag label-mono rounded-full px-2 md:px-3 py-1 text-[0.6rem] md:text-[0.7rem]"
+      className="glass-tag label-mono rounded-full px-3 md:px-4 py-1.5 md:py-2 text-[0.8rem] md:text-[0.95rem]"
       style={{ color }}
     >
       {label}
@@ -26,28 +26,28 @@ function TimelineEntry({
   color: string;
 }) {
   return (
-    <div className="flex gap-4 md:gap-5">
+    <div className="flex gap-5 md:gap-6">
       <div className="flex flex-col items-center">
         <div
-          className="timeline-dot border-2 shrink-0"
+          className="timeline-dot border-2 shrink-0 w-4 h-4 md:w-[18px] md:h-[18px]"
           style={{ borderColor: color, background: `${color}30` }}
         />
-        <div className="flex-1 w-px bg-white/5 mt-2" />
+        <div className="flex-1 w-px bg-white/10 mt-2" />
       </div>
-      <div className="pb-8 md:pb-10">
+      <div className="pb-10 md:pb-14">
         <span
-          className="label-mono text-[0.6rem] md:text-[0.68rem]"
+          className="label-mono text-sm md:text-base font-semibold"
           style={{ color }}
         >
           {year}
         </span>
         <h4
-          className="text-white font-semibold text-[0.85rem] md:text-[0.95rem] mt-1 mb-2"
+          className="text-white font-bold text-xl md:text-2xl mt-2 mb-3"
           style={{ letterSpacing: "-0.01em" }}
         >
           {title}
         </h4>
-        <p className="text-[#8a94b0] text-xs md:text-sm leading-relaxed">
+        <p className="text-[#c2c9dd] text-base md:text-lg leading-relaxed">
           {body}
         </p>
       </div>
@@ -165,61 +165,65 @@ export default function AboutMe() {
             Technical Expertise
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-5 animate-fade-up delay-200">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 animate-fade-up delay-200">
             {/* Languages */}
-            <div className="glass glass-hover rounded-2xl p-7">
-              <h3 className="text-white font-semibold text-sm mb-5 flex items-center gap-2">
-                <span className="text-base">💻</span>
+            <div className="glass glass-hover rounded-2xl p-8 md:p-10">
+              <h3 className="text-white font-semibold text-base md:text-lg mb-6 md:mb-8 flex items-center gap-3">
+                <span className="text-xl md:text-2xl">💻</span>
                 <span style={{ letterSpacing: "-0.01em" }}>Languages</span>
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2.5 md:gap-3">
                 {[
                   { l: "Python", c: "#60a5fa" },
-                  { l: "Java", c: "#fb923c" },
-                  { l: "JavaScript", c: "#fbbf24" },
+                  { l: "TypeScript", c: "#67e8f9" },
+                  { l: "Rust", c: "#fb923c" },
+                  { l: "Java", c: "#fca5a5" },
                   { l: "C", c: "#94a3b8" },
-                  { l: "C++", c: "#93c5fd" },
-                  { l: "Dart", c: "#67e8f9" },
-                  { l: "R", c: "#c084fc" },
                 ].map(({ l, c }) => (
                   <Chip key={l} label={l} color={c} />
                 ))}
               </div>
             </div>
 
-            {/* Frameworks */}
-            <div className="glass glass-hover rounded-2xl p-7">
-              <h3 className="text-white font-semibold text-sm mb-5 flex items-center gap-2">
-                <span className="text-base">🏗️</span>
-                <span style={{ letterSpacing: "-0.01em" }}>Frameworks</span>
+            {/* AI & LLM Engineering */}
+            <div className="glass glass-hover rounded-2xl p-8 md:p-10">
+              <h3 className="text-white font-semibold text-base md:text-lg mb-6 md:mb-8 flex items-center gap-3">
+                <span className="text-xl md:text-2xl">🧠</span>
+                <span style={{ letterSpacing: "-0.01em" }}>
+                  AI &amp; LLM Engineering
+                </span>
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2.5 md:gap-3">
                 {[
-                  { l: "React", c: "#67e8f9" },
-                  { l: "Django", c: "#6ee7b7" },
-                  { l: "TensorFlow", c: "#fb923c" },
-                  { l: "PyTorch", c: "#fca5a5" },
-                  { l: "LlamaIndex", c: "#c084fc" },
+                  { l: "RAG Pipelines", c: "#86efac" },
+                  { l: "LLM Fine-tuning (LoRA/SFT)", c: "#c084fc" },
+                  { l: "Prompt Engineering", c: "#fbbf24" },
                   { l: "LangChain", c: "#86efac" },
+                  { l: "HuggingFace", c: "#fbbf24" },
+                  { l: "OpenAI API", c: "#93c5fd" },
+                  { l: "PyTorch", c: "#fca5a5" },
                 ].map(({ l, c }) => (
                   <Chip key={l} label={l} color={c} />
                 ))}
               </div>
             </div>
 
-            {/* Databases */}
-            <div className="glass glass-hover rounded-2xl p-7">
-              <h3 className="text-white font-semibold text-sm mb-5 flex items-center gap-2">
-                <span className="text-base">🗄️</span>
-                <span style={{ letterSpacing: "-0.01em" }}>Databases</span>
+            {/* Infra & MLOps */}
+            <div className="glass glass-hover rounded-2xl p-8 md:p-10">
+              <h3 className="text-white font-semibold text-base md:text-lg mb-6 md:mb-8 flex items-center gap-3">
+                <span className="text-xl md:text-2xl">⚙️</span>
+                <span style={{ letterSpacing: "-0.01em" }}>
+                  Infra &amp; MLOps
+                </span>
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2.5 md:gap-3">
                 {[
-                  { l: "MySQL", c: "#60a5fa" },
-                  { l: "PostgreSQL", c: "#93c5fd" },
-                  { l: "MongoDB", c: "#6ee7b7" },
-                  { l: "Neo4j", c: "#67e8f9" },
-                  { l: "Elasticsearch", c: "#94a3b8" },
+                  { l: "Docker", c: "#60a5fa" },
+                  { l: "AWS (EC2/S3/Lambda)", c: "#fb923c" },
+                  { l: "GitLab", c: "#fca5a5" },
+                  { l: "DataDog", c: "#c084fc" },
+                  { l: "SQL", c: "#93c5fd" },
+                  { l: "Vector Storage", c: "#67e8f9" },
                 ].map(({ l, c }) => (
                   <Chip key={l} label={l} color={c} />
                 ))}
@@ -306,37 +310,35 @@ export default function AboutMe() {
             My Journey
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Right: Timeline */}
-            <div className="text-xl animate-fade-up delay-200">
-              <TimelineEntry
-                year="2016 — First Steps in CS"
-                title="First Steps in CS"
-                body="Started my computer science journey with a pre-college program in Cambridge, learning Python and R. Completed a one-month internship at Wins SRL, gaining hands-on experience with relational databases."
-                color="#60a5fa"
-              />
-              <TimelineEntry
-                year="2017–2021"
-                title="Bachelor's at Politecnico di Milano"
-                body="Pursued computer science engineering at one of the world's most demanding universities. Mastered Object-Oriented Programming with Java, C programming, and algorithm complexity theory. Gained strong foundations in calculus, linear algebra, electronics, and automation systems."
-                color="#6ee7b7"
-              />
-              <TimelineEntry
-                year="2021–2024"
-                title="Double Master's Degree"
-                body="Completed a unique double degree program: one year at Politecnico di Milano and two years at Xi'an Jiaotong University in China. This international experience enriched my cultural perspective and global approach to engineering challenges. During this period I worked as an AI researcher on NLP and Large Language Models, whose results are presented in my Master's Thesis."
-                color="#c084fc"
-              />
-              <TimelineEntry
-                year="2024 — present"
-                title="Professional Experience"
-                body="After graduation, worked briefly at Capgemini in Milan before joining the European Central Bank in Frankfurt's Information Systems division. Currently working in the internal AI team, where we develop and maintain AI tools to be used internally in the bank."
-                color="#fb923c"
-              />
-            </div>
+          <h2 className="text-section-head text-[clamp(2.2rem,5vw,3.5rem)] text-white mb-16 animate-fade-up delay-100">
+            From Milan to Frankfurt
+          </h2>
 
-            {/* Left: headline */}
-            <div className="animate-fade-up delay-100"></div>
+          <div className="max-w-3xl animate-fade-up delay-200">
+            <TimelineEntry
+              year="2016 — First Steps in CS"
+              title="First Steps in CS"
+              body="Started my computer science journey with a pre-college program in Cambridge, learning Python and R. Completed a one-month internship at Wins SRL, gaining hands-on experience with relational databases."
+              color="#60a5fa"
+            />
+            <TimelineEntry
+              year="2017–2021"
+              title="Bachelor's at Politecnico di Milano"
+              body="Pursued computer science engineering at one of the world's most demanding universities. Mastered Object-Oriented Programming with Java, C programming, and algorithm complexity theory. Gained strong foundations in calculus, linear algebra, electronics, and automation systems."
+              color="#6ee7b7"
+            />
+            <TimelineEntry
+              year="2021–2024"
+              title="Double Master's Degree"
+              body="Completed a unique double degree program: one year at Politecnico di Milano and two years at Xi'an Jiaotong University in China. This international experience enriched my cultural perspective and global approach to engineering challenges. During this period I worked as an AI researcher on NLP and Large Language Models, whose results are presented in my Master's Thesis."
+              color="#c084fc"
+            />
+            <TimelineEntry
+              year="2024 — present"
+              title="Professional Experience"
+              body="After graduation, worked briefly at Capgemini in Milan before joining the European Central Bank in Frankfurt's Information Systems division. Currently working in the internal AI team, where we develop and maintain AI tools to be used internally in the bank."
+              color="#fb923c"
+            />
           </div>
         </div>
       </section>
