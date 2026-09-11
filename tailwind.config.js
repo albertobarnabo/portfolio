@@ -1,50 +1,44 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{ts,tsx}"],
-  darkMode: "class",
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"SF Mono"', '"Fira Mono"', 'monospace'],
-      },
+      // Every colour is a CSS variable so .theme-night / .theme-paper / .theme-flare
+      // re-skin the same utilities. Opacity modifiers (bg-accent/10) don't work on
+      // var() colours — use the explicit tokens (chip, glow) instead.
       colors: {
-        canvas: "#060810",
-        layer: "#0a0e1a",
-        accent: {
-          blue:   "#5b8ef0",
-          violet: "#9b6ff0",
-          teal:   "#3ecfa4",
-        },
+        bg: "var(--bg)",
+        surface: "var(--surface)",
+        "surface-2": "var(--surface-2)",
+        text: "var(--text)",
+        muted: "var(--muted)",
+        faint: "var(--faint)",
+        accent: "var(--accent)",
+        "accent-ink": "var(--accent-ink)",
+        "accent-2": "var(--accent-2)",
+        rule: "var(--border)",
+        "rule-strong": "var(--border-strong)",
+        chip: "var(--chip-bg)",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      fontFamily: {
+        display: ["var(--font-sans)", "system-ui", "sans-serif"],
+        body: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
-      animation: {
-        "fade-up":     "fade-up 0.7s cubic-bezier(0.22,1,0.36,1) both",
-        "fade-in":     "fade-in 0.9s ease both",
-        "pulse-glow":  "pulse-glow 6s ease-in-out infinite",
-        aurora:        "aurora 18s ease infinite",
+      fontSize: {
+        "display-1": ["clamp(3rem, 9vw, 7.5rem)", { lineHeight: "0.92", letterSpacing: "-0.045em", fontWeight: "800" }],
+        "display-2": ["clamp(2.5rem, 5.2vw, 4.75rem)", { lineHeight: "0.95", letterSpacing: "-0.035em", fontWeight: "700" }],
+        h2: ["clamp(1.9rem, 3.8vw, 3.1rem)", { lineHeight: "1.02", letterSpacing: "-0.035em", fontWeight: "700" }],
+        h3: ["clamp(1.4rem, 2.2vw, 1.85rem)", { lineHeight: "1.1", letterSpacing: "-0.025em", fontWeight: "700" }],
+        lede: ["clamp(1.15rem, 1.6vw, 1.35rem)", { lineHeight: "1.45", letterSpacing: "-0.012em", fontWeight: "500" }],
+        body: ["1.0625rem", { lineHeight: "1.6" }],
+        small: ["0.9375rem", { lineHeight: "1.5" }],
+        eyebrow: ["0.6875rem", { lineHeight: "1", letterSpacing: "0.12em", fontWeight: "500" }],
+        data: ["0.8125rem", { lineHeight: "1.5" }],
       },
-      keyframes: {
-        "fade-up": {
-          from: { opacity: "0", transform: "translateY(28px)" },
-          to:   { opacity: "1", transform: "translateY(0)" },
-        },
-        "fade-in": {
-          from: { opacity: "0" },
-          to:   { opacity: "1" },
-        },
-        "pulse-glow": {
-          "0%,100%": { opacity: "0.4", transform: "scale(1)" },
-          "50%":     { opacity: "0.7", transform: "scale(1.08)" },
-        },
-        aurora: {
-          "0%":   { backgroundPosition: "0% 50%" },
-          "50%":  { backgroundPosition: "100% 50%" },
-          "100%": { backgroundPosition: "0% 50%" },
-        },
-      },
+      borderRadius: { plate: "20px", card: "14px" },
+      maxWidth: { site: "1200px", wide: "1360px", prose: "62ch" },
+      transitionTimingFunction: { out: "cubic-bezier(0.22, 1, 0.36, 1)" },
     },
   },
   plugins: [],

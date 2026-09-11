@@ -1,126 +1,76 @@
-import ToolCard from "./ToolCard";
+import Image from "next/image";
+import { FiArrowUpRight } from "react-icons/fi";
+import { MORE, type Minor } from "@/data/site";
+import { Reveal } from "./Reveal";
+
+function Thumb({ m }: { m: Minor }) {
+  if (!m.thumb) {
+    return (
+      <div className="font-display flex h-full w-full items-end p-5 text-[2.2rem] font-extrabold leading-none text-text/90">
+        {m.title}
+      </div>
+    );
+  }
+  if (m.thumb.endsWith(".svg")) {
+    const logo = m.thumb.includes("opal-zero");
+    return (
+      <div className={`flex h-full w-full items-center justify-center ${logo ? "p-10" : ""}`}>
+        {/* SVG assets are served as-is; next/image would refuse to optimise them */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={m.thumb}
+          alt={m.thumbAlt ?? ""}
+          className={logo ? "max-h-full max-w-full object-contain" : "h-full w-full object-cover"}
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+  return (
+    <Image
+      src={m.thumb}
+      alt={m.thumbAlt ?? ""}
+      fill
+      sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+    />
+  );
+}
 
 export default function Tools() {
   return (
-    <section
-      id="projects"
-      className="relative py-24 md:py-40 noise-bg bg-[#060810] overflow-hidden"
-    >
-      {/* Ambient glow blobs */}
-      <div className="glow-blob w-[500px] h-[500px] bg-accent-blue/10 top-1/4 -left-40 animate-pulse-glow" />
-      <div
-        className="glow-blob w-[400px] h-[400px] bg-accent-violet/10 bottom-1/4 -right-32 animate-pulse-glow"
-        style={{ animationDelay: "3s" }}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
-        {/* Section label */}
-        <div className="label-mono text-[#3ecfa4] mb-6 flex items-center gap-3 animate-fade-up">
-          <span className="w-8 h-px bg-[#3ecfa4]/60" />
-          Personal Projects
-        </div>
-
-        {/* Headline */}
-        <h2 className="text-section-head text-[clamp(1.8rem,5vw,3.5rem)] text-white mb-4 animate-fade-up delay-100">
-          Things I&apos;ve built
-        </h2>
-        <p className="text-[#8a94b0] text-[1rem] md:text-[1.05rem] max-w-xl leading-relaxed mb-12 md:mb-16 animate-fade-up delay-200">
-          Explore the tools I&apos;ve built to solve real-world problems. Each
-          project represents a unique challenge and innovative solution in the
-          world of technology.
+    <section id="tools" aria-labelledby="tools-h" className="wrap pt-24 md:pt-36" data-nav-theme="night">
+      <Reveal>
+        <p className="eyebrow">
+          <span className="text-accent">03</span> — Tools & experiments
         </p>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-up delay-300">
-          <ToolCard
-            name="Lazy Cat"
-            image="lazy-cat.png"
-            description="A Claude skill that teaches Claude to find the clever path before taking the obvious one. 47 git stars."
-            link="https://github.com/albertobarnabo/lazy-cat"
-            technologies={["Claude Skill", "Token Optimization", "Agentic Workflows"]}
-            accentColor="rgba(62,207,164,0.4)"
-            ctaLabel="View on GitHub"
-          />
-          <ToolCard
-            name="Fiduciary AI"
-            image="fiduciary.png"
-            description="A senior personal financial advisor: Qwen3-4B fine-tuned with LoRA + live market/news tools, fully local on Apple Silicon (MLX). More than 8k downloads on HuggingFace."
-            link="https://github.com/albertobarnabo/fiduciary"
-            technologies={["Fine-tuning", "Local LLM", "HuggingFace", "Financial Analysis"]}
-            accentColor="rgba(62,207,164,0.4)"
-            ctaLabel="View on GitHub"
-          />
-          <ToolCard
-            name="OpalZero"
-            image="opalzero-logo.svg"
-            description="An AI orchestrator that operatesvia strict tool-calling security directives. Built on Rust and Serde, it synthesizes raw intent into verified, structured state—zero hallucinations, 100% integrity."
-            link="https://albertobarnabo.com/opal-zero/"
-            technologies={["Rust", "LLM", "Agentic Workflows", "Governance"]}
-            accentColor="rgba(91,142,240,0.35)"
-          />
-          <ToolCard
-            name="Fitz"
-            image="fitz-logo.svg"
-            description="Discover womens' clothing items available in physical stores near you. Find what you need in your local area with real-time availability."
-            link="https://fitzstore.eu/"
-            technologies={["Web App", "Location Services", "Real-time Data"]}
-            accentColor="rgba(62,207,164,0.4)"
-          />
-          <ToolCard
-            name="InterVous"
-            image="intervous_logo.png"
-            description="Streamline your job search process with AI-powered assistance. Get personalized recommendations and insights."
-            link="https://albertobarnabo.com/intervous"
-            technologies={["AI/ML", "Job Search", "Web Platform"]}
-            accentColor="rgba(155,111,240,0.4)"
-          />
-          <ToolCard
-            name="Fact-Checking Pipeline"
-            image="github-logo.svg"
-            description="Fact Checking pipeline for the FEVEROUS dataset implemented using LangChain"
-            link="https://github.com/albertobarnabo/Fact-Checking-Pipeline"
-            technologies={["Python", "RAG", "NLP", "LLM"]}
-            accentColor="rgba(91,142,240,0.35)"
-            ctaLabel="View on GitHub"
-          />
-          
-          <ToolCard
-            name="limn"
-            image="github-logo.svg"
-            description="I built myself a python library for plots and charts that is fast, simple and beautiful. It is a library that I use for my own projects and I wanted to share it with the community."
-            link="https://github.com/albertobarnabo/limn"
-            technologies={["Python", "Data Visualization", "Matplotlib"]}
-            accentColor="rgba(155,111,240,0.4)"
-            ctaLabel="View on GitHub"
-          />
-
-          <ToolCard
-            name="manim-craft"
-            image="github-logo.svg"
-            description="Two Claude skills that split 'make an animation that teaches' into its two actual problems, plus a blind A/B harness that measures whether they help:"
-            link="https://github.com/albertobarnabo/manim-craft"
-            technologies={["Claude", "Skills", "Manim"]}
-            accentColor="rgba(155,111,240,0.4)"
-            ctaLabel="View on GitHub"
-          />
-        </div>
-
-        {/* CTA strip */}
-        <div className="mt-12 glass rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center md:items-center justify-between gap-6 md:gap-4 animate-fade-up delay-400">
-          <p className="text-[#8a94b0] text-[0.9rem] md:text-[0.95rem] leading-relaxed max-w-lg text-center md:text-left">
-            Interested in collaborating or have questions about these projects?{" "}
-            <span className="text-[#eef2ff]">
-              I&apos;m always excited to discuss new ideas and opportunities!
-            </span>
-          </p>
-          <a
-            href="#contact"
-            className="btn-primary flex-shrink-0 w-full md:w-auto text-center justify-center"
-          >
-            Let&apos;s talk
-          </a>
-        </div>
-      </div>
+        <h2 id="tools-h" className="font-display mt-4 text-h2">The long tail.</h2>
+      </Reveal>
+      <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {MORE.map((m, i) => (
+          <Reveal key={m.title} delay={(i % 3) * 0.06} amount={0.1}>
+            <li className="group flex h-full flex-col overflow-hidden rounded-card border border-rule bg-surface transition-all duration-300 hover:-translate-y-0.5 hover:border-rule-strong hover:shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
+              <div className="sheen relative aspect-[16/9] overflow-hidden border-b border-rule bg-surface-2">
+                <Thumb m={m} />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="font-display text-[1.15rem] font-bold leading-tight">{m.title}</h3>
+                  <span className="chip shrink-0">{m.tag}</span>
+                </div>
+                <p className="mt-2 flex-1 text-small text-muted">{m.body}</p>
+                <div className="mt-4 flex gap-4">
+                  {m.links.map((l) => (
+                    <a key={l.href} href={l.href} className="arrow-link text-[12px]" target="_blank" rel="noreferrer">
+                      {l.label} <FiArrowUpRight size={12} aria-hidden />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </li>
+          </Reveal>
+        ))}
+      </ul>
     </section>
   );
 }
