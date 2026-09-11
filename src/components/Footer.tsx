@@ -7,7 +7,7 @@ export default function Footer({ stats, built }: { stats: Stats; built: string }
       <div className="wrap flex flex-col gap-3 border-t border-rule py-8 font-mono text-[11px] text-faint sm:flex-row sm:items-center sm:justify-between">
         <span>
           © {new Date().getFullYear()} {SITE.name} · Built with Next.js ·{" "}
-          <a href={SITE.source} className="ul-draw hover:text-accent" target="_blank" rel="noreferrer">
+          <a href={SITE.source} className="transition-colors hover:text-text" target="_blank" rel="noreferrer">
             Source on GitHub
           </a>
         </span>

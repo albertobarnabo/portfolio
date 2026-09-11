@@ -22,7 +22,7 @@ const mono = Geist_Mono({
 });
 
 const description =
-  "Applied AI engineer at the European Central Bank. Retrieval, fine-tuning and document-AI systems that run on CPU and Apple silicon — models and datasets open on Hugging Face.";
+  "Applied AI engineer at the European Central Bank: LLM pipelines and agentic applications in production. Open models and datasets on Hugging Face.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),

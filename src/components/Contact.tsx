@@ -1,6 +1,4 @@
-import { FiArrowUpRight } from "react-icons/fi";
-import { OPEN_TO_ROLES, OPEN_TO_ROLES_LINE, SITE } from "@/data/site";
-import LocalTime from "./LocalTime";
+import { SITE } from "@/data/site";
 import { Reveal } from "./Reveal";
 
 export default function Contact() {
@@ -10,39 +8,32 @@ export default function Contact() {
     { label: "GitHub", href: SITE.github },
   ];
   return (
-    <footer id="contact" aria-labelledby="contact-h" className="theme-flare bg-bg text-text" data-nav-theme="flare">
+    <footer id="contact" aria-labelledby="contact-h" className="theme-champagne bg-bg text-text" data-nav-theme="champagne">
       <div className="wrap py-24 md:py-32">
         <Reveal>
           <p className="eyebrow">Contact</p>
-          <h2 id="contact-h" className="font-display mt-4 max-w-[12ch] text-display-1">
-            Let’s build something that ships.
+          <h2 id="contact-h" className="font-display mt-4 max-w-[14ch] text-display-1 font-medium">
+            Let’s talk.
           </h2>
         </Reveal>
-        <Reveal delay={0.1}>
+        <Reveal delay={0.08}>
           <div className="mt-12 grid gap-10 md:grid-cols-12 md:items-end">
             <div className="md:col-span-8">
               <a
                 href={`mailto:${SITE.email}`}
-                className="font-body inline-block border-b-2 border-text text-[clamp(1.5rem,3.2vw,2.5rem)] font-medium leading-tight transition-opacity hover:opacity-70"
+                className="inline-block text-[clamp(1.375rem,2.8vw,2.25rem)] tracking-[-0.02em] underline decoration-rule-strong decoration-1 underline-offset-[10px] transition-colors duration-300 hover:decoration-text"
               >
                 {SITE.email}
               </a>
-              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+              <p className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-small text-muted">
                 {links.map((l) => (
-                  <li key={l.href}>
-                    <a href={l.href} className="arrow-link text-[14px]" target="_blank" rel="noreferrer">
-                      {l.label} <FiArrowUpRight size={13} aria-hidden />
-                    </a>
-                  </li>
+                  <a key={l.href} href={l.href} className="transition-colors hover:text-text" target="_blank" rel="noreferrer">
+                    {l.label} ↗
+                  </a>
                 ))}
-              </ul>
-              {OPEN_TO_ROLES && (
-                <p className="mt-8 max-w-prose text-body text-muted">{OPEN_TO_ROLES_LINE} — Frankfurt, remote, or relocation within the EU.</p>
-              )}
+              </p>
             </div>
-            <p className="font-mono text-data text-muted md:col-span-4 md:text-right">
-              Frankfurt · <LocalTime /> local
-            </p>
+            <p className="text-small text-muted md:col-span-4 md:text-right">Frankfurt am Main</p>
           </div>
         </Reveal>
       </div>

@@ -23,13 +23,13 @@ export default function Models({ stats }: { stats: Stats }) {
               Every model and dataset, with live downloads.
             </h2>
           </div>
-          <a href={SITE.hf} className="arrow-link" target="_blank" rel="noreferrer">
+          <a href={SITE.hf} className="link whitespace-nowrap text-[0.875rem]" target="_blank" rel="noreferrer">
             huggingface.co/albertobarnabo <FiArrowUpRight size={13} aria-hidden />
           </a>
         </div>
       </Reveal>
 
-      <InView className="mt-10 overflow-x-auto rounded-card border border-rule bg-surface">
+      <InView className="mt-10 overflow-x-auto rounded-xl border border-rule bg-surface">
         <table className="w-full min-w-[560px] border-collapse text-data">
           <thead>
             <tr className="text-left">
@@ -44,20 +44,20 @@ export default function Models({ stats }: { stats: Stats }) {
             {rows.map((a, i) => (
               <tr key={a.id} className="border-t border-rule transition-colors duration-150 hover:bg-surface-2">
                 <td className="px-5 py-3 font-mono [overflow-wrap:anywhere]">
-                  <a href={href(a)} className="ul-draw text-text hover:text-accent" target="_blank" rel="noreferrer">
+                  <a href={href(a)} className="link" target="_blank" rel="noreferrer">
                     {a.name}
                   </a>
                 </td>
                 <td className="px-3 py-3">
-                  <span className="chip">{a.kind}</span>
+                  <span className="text-[0.8125rem] text-muted">{a.kind}</span>
                 </td>
                 <td className="hidden px-3 py-3 text-muted lg:table-cell">{a.task}</td>
                 <td className="hidden px-3 py-3 font-mono text-muted md:table-cell">{a.base}</td>
                 <td className="px-5 py-3">
                   <div className="flex items-center justify-end gap-3">
-                    <span className="hidden h-[2px] w-24 rounded-full bg-bg sm:block">
+                    <span className="hidden h-px w-24 bg-rule sm:block">
                       <span
-                        className="bar block h-full rounded-full bg-accent"
+                        className="bar block h-full rounded-full bg-bar"
                         style={{ width: `${Math.max(2, Math.sqrt(a.downloads / max) * 100)}%`, transitionDelay: `${i * 40}ms` }}
                       />
                     </span>

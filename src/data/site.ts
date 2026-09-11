@@ -21,7 +21,7 @@ export const OPEN_TO_ROLES = false;
 export const OPEN_TO_ROLES_LINE = "Open to Applied AI / Forward-Deployed Engineer roles";
 
 export const POSITIONING =
-  "I ship retrieval, fine-tuning and document-AI systems that run on CPU and Apple silicon — and publish the models.";
+  "I take LLM pipelines and agentic applications to production at the European Central Bank — and, on my own time, train small models and publish the evidence.";
 
 export type LinkKind = "GitHub" | "Hugging Face" | "Dataset" | "Demo" | "Site" | "Paper" | "Live";
 export type Link = { label: LinkKind; href: string };
@@ -175,16 +175,16 @@ export type Minor = { title: string; body: string; tag: string; links: Link[]; t
 
 export const MORE: Minor[] = [
   { title: "OpalZero", tag: "Rust", body: "A multi-agent engine in Rust: one plain-English intent in, a typed MissionState out over SSE.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/opal-zero" }, { label: "Site", href: "https://albertobarnabo.com/opal-zero/" }], thumb: "/work/opal-zero.svg", thumbAlt: "OpalZero logo" },
-  { title: "Scenesmith", tag: "LoRA", body: "Qwen3-4B LoRA that writes render-verified Manim scenes. Render pass on held-out prompts: 10% base → 81% tuned.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/scenesmith" }, { label: "Hugging Face", href: "https://huggingface.co/albertobarnabo/scenesmith-qwen3-4b" }], thumb: "/work/manim.png", thumbAlt: "A rendered Manim torus" },
+  { title: "Italian Bankruptcy Forecast", tag: "Simulation", body: "Italy from 2025 to 2050, one dot per thousand people — workers, pensioners and everyone else — animated from Eurostat, Istat and INPS data. The watchable face of a larger agent-based simulation.", links: [{ label: "Demo", href: "https://huggingface.co/spaces/albertobarnabo/italian-bankruptcy-forecast" }], thumb: "/work/bankruptcy.jpg", thumbAlt: "Italy in 2025 as three columns of dots: workers, pensioners, everyone else" },
   { title: "tokentropy", tag: "Uncertainty", body: "Claim-level uncertainty scores for streaming LLM output, from top-k log-probabilities alone — no second model.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/tokentropy" }], thumb: "/work/tokentropy-dark.svg", thumbAlt: "Distribution chart of per-claim uncertainty scores" },
   { title: "professor", tag: "Claude skill", body: "Designs an explanation before anything is produced — base → vary → name — with eleven evidence-tagged gates.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/professor" }], thumb: "/work/professor.jpg", thumbAlt: "An old professor in a study full of books" },
-  { title: "manim-craft", tag: "Claude skill", body: "Manim craft for LLM-generated animations, plus a blind A/B that showed craft alone doesn’t improve teaching.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/manim-craft" }] },
-  { title: "limn", tag: "Python", body: "Zero-dependency charting that accepts the CSV finance actually exported and returns publication-grade SVG.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/limn" }] },
+  { title: "manim-craft", tag: "Claude skill", body: "Manim craft for LLM-generated animations, plus a blind A/B that showed craft alone doesn’t improve teaching.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/manim-craft" }], thumb: "/work/manim-craft.png", thumbAlt: "A Manim keyframe: a 3D surface under a moving camera" },
+  { title: "limn", tag: "Python", body: "Zero-dependency charting that accepts the CSV finance actually exported and returns publication-grade SVG.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/limn" }], thumb: "/work/limn.svg", thumbAlt: "A stacked area chart rendered by limn, dark theme" },
   { title: "bibliotech", tag: "Agent memory", body: "Dated decision records for an agent, so decisions survive across sessions instead of being re-derived.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/bibliotech" }], thumb: "/work/bibliotech.jpg", thumbAlt: "A grand library hall" },
   { title: "ocr-sota", tag: "OCR", body: "An automatically ranked index of open-source OCR engines, document parsers and vision-language models.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/ocr-sota" }], thumb: "/work/ocr-sota.jpg", thumbAlt: "A desk with books, a manuscript and a magnifying glass" },
   { title: "MenuGen", tag: "Next.js", body: "A menu spreadsheet in, batch AI food photography out — with the cost shown before you generate.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/MenuGen" }], thumb: "/work/menugen.png", thumbAlt: "MenuGen’s compose screen" },
-  { title: "plasmodio", tag: "Simulation", body: "A slime mould redraws Italy. Agent-based simulation in the browser.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/plasmodio" }, { label: "Demo", href: "https://huggingface.co/spaces/albertobarnabo/plasmodio" }] },
-  { title: "orbis", tag: "Swift", body: "A native globe for the countries you’ve lived in, visited, passed through.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/orbis" }] },
+  { title: "plasmodio", tag: "Simulation", body: "A slime mould redraws Italy. Agent-based simulation in the browser.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/plasmodio" }, { label: "Demo", href: "https://huggingface.co/spaces/albertobarnabo/plasmodio" }], thumb: "/work/plasmodio.png", thumbAlt: "plasmodio: a slime-mould simulation redrawing the map of Italy" },
+  { title: "orbis", tag: "Swift", body: "A native globe for the countries you’ve lived in, visited, passed through.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/orbis" }], thumb: "/work/orbis.jpg", thumbAlt: "orbis: a globe showing visited countries" },
   { title: "InterVous", tag: "LLM", body: "Parses a job application out of a posting URL.", links: [{ label: "Live", href: "https://albertobarnabo.com/intervous" }], thumb: "/intervous_logo.png", thumbAlt: "InterVous logo" },
 ];
 
@@ -227,8 +227,7 @@ export const SNAPSHOT = {
 export type TimelineItem = { period: string; title: string; org: string; note?: string };
 
 export const TIMELINE: TimelineItem[] = [
-  { period: "2025 —", title: "Applied AI Engineer", org: "European Central Bank, Frankfurt", note: "Internal AI team: building and running the AI tooling used across the bank." },
-  { period: "2024", title: "Software Engineer", org: "Capgemini, Milan" },
+  { period: "2025 —", title: "Applied AI Engineer", org: "European Central Bank, Frankfurt", note: "Internal AI team. I take LLM pipelines and agentic applications from proof of concept to production — document understanding, retrieval and search over large internal collections — and build the evaluation sets and benchmarks that decide what ships. Day to day: containerised services on cloud infrastructure, cost and latency, error handling and retries, and explaining and defending technical choices to the business teams that use them." },
   { period: "2022 – 2024", title: "AI Researcher", org: "Xi’an Jiaotong University", note: "NLP and large language models for fact verification over tables — the master’s thesis." },
   { period: "2021 – 2024", title: "M.Sc. Computer Science & Engineering", org: "Politecnico di Milano · Xi’an Jiaotong University", note: "Double-degree programme: one year in Milan, two in Xi’an." },
   { period: "2017 – 2021", title: "B.Sc. Computer Science & Engineering", org: "Politecnico di Milano" },

@@ -19,6 +19,7 @@ module.exports = {
         rule: "var(--border)",
         "rule-strong": "var(--border-strong)",
         chip: "var(--chip-bg)",
+        bar: "var(--bar)",
       },
       fontFamily: {
         display: ["var(--font-sans)", "system-ui", "sans-serif"],
@@ -26,9 +27,9 @@ module.exports = {
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       fontSize: {
-        "display-1": ["clamp(3rem, 9vw, 7.5rem)", { lineHeight: "0.92", letterSpacing: "-0.045em", fontWeight: "800" }],
-        "display-2": ["clamp(2.5rem, 5.2vw, 4.75rem)", { lineHeight: "0.95", letterSpacing: "-0.035em", fontWeight: "700" }],
-        h2: ["clamp(1.9rem, 3.8vw, 3.1rem)", { lineHeight: "1.02", letterSpacing: "-0.035em", fontWeight: "700" }],
+        "display-1": ["clamp(3rem, 9vw, 7.5rem)", { lineHeight: "0.92", letterSpacing: "-0.04em", fontWeight: "600" }],
+        "display-2": ["clamp(2.5rem, 5.2vw, 4.75rem)", { lineHeight: "0.95", letterSpacing: "-0.035em", fontWeight: "600" }],
+        h2: ["clamp(1.9rem, 3.8vw, 3.1rem)", { lineHeight: "1.06", letterSpacing: "-0.03em", fontWeight: "600" }],
         h3: ["clamp(1.4rem, 2.2vw, 1.85rem)", { lineHeight: "1.1", letterSpacing: "-0.025em", fontWeight: "700" }],
         lede: ["clamp(1.15rem, 1.6vw, 1.35rem)", { lineHeight: "1.45", letterSpacing: "-0.012em", fontWeight: "500" }],
         body: ["1.0625rem", { lineHeight: "1.6" }],
