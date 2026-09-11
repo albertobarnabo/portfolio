@@ -1,37 +1,42 @@
-"use client";
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import FeaturedWork from "@/components/FeaturedWork";
+import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
+import Models from "@/components/Models";
+import MotionProvider from "@/components/MotionProvider";
+import Nav from "@/components/Nav";
+import ProofStrip from "@/components/ProofStrip";
+import StickyPill from "@/components/StickyPill";
+import Tools from "@/components/Tools";
+import { getStats } from "@/lib/stats";
 
-import AboutMe from "../components/AboutMe";
-import Tools from "../components/Tools";
-import Contact from "../components/Contacts";
-import TopBar from "../components/TopBar";
-import Hero from "../components/Hero";
+// Re-fetch Hugging Face / GitHub numbers at most once a day.
+export const revalidate = 86400;
 
-export default function Home() {
+export default async function Home() {
+  const stats = await getStats();
+  const built = new Date().toISOString().slice(0, 10);
   return (
-    <div className="min-h-screen w-full bg-[#060810] text-[#eef2ff] overflow-x-hidden">
-      <TopBar />
-
-      {/* ─── HERO ───────────────────────────────────────── */}
-      <Hero />
-
-      {/* ─── ABOUT + STACK + RESEARCH + JOURNEY ─────────── */}
-      <AboutMe />
-
-      {/* ─── PROJECTS ───────────────────────────────────── */}
-      <Tools />
-
-      {/* ─── CONTACT ────────────────────────────────────── */}
+    <MotionProvider>
+      <a
+        href="#work"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-accent-ink"
+      >
+        Skip to work
+      </a>
+      <Nav />
+      <main>
+        <Hero />
+        <ProofStrip stats={stats} />
+        <FeaturedWork stats={stats} />
+        <Models stats={stats} />
+        <Tools />
+        <About />
+      </main>
       <Contact />
-
-      {/* ─── FOOTER ─────────────────────────────────────── */}
-      <footer className="border-t border-white/5 py-8">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-3">
-          <span className="label-mono text-[#4a5168]">
-            © {new Date().getFullYear()} Alberto Barnabò — All rights reserved
-          </span>
-          <span className="label-mono text-[#4a5168]">Frankfurt, Germany</span>
-        </div>
-      </footer>
-    </div>
+      <Footer stats={stats} built={built} />
+      <StickyPill />
+    </MotionProvider>
   );
 }
