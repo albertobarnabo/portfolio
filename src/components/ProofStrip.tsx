@@ -6,7 +6,7 @@ export default function ProofStrip({ stats }: { stats: Stats }) {
     { n: fmt(stats.modelDownloads), l: "model downloads on Hugging Face", lead: true },
     { n: `${stats.modelCount} / ${stats.datasetCount}`, l: "open models / datasets" },
     { n: `${fmt(stats.stars["albertobarnabo/lazy-cat"] ?? 0)}★`, l: "stars on lazy-cat" },
-    { n: "427,655", l: "human judgments in the search stack" },
+    { n: fmt(stats.repos), l: "public repositories on GitHub" },
   ];
   return (
     <div className="wrap" data-nav-theme="night">

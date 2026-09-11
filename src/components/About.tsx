@@ -28,7 +28,6 @@ export default function About() {
                 On my own time I train small models on a laptop, publish what comes out, and write down what I learned —
                 including the results that didn’t work. The projects above are that habit in public.
               </p>
-              <p>I speak Italian, English and Spanish fluently, and enough German and Mandarin to get by.</p>
             </div>
           </Reveal>
 

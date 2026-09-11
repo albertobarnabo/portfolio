@@ -57,11 +57,11 @@ export const FEATURED: Featured[] = [
     tag: "Retrieval",
     role: "Author",
     title: "E-commerce product search",
-    kicker: "Self-hosted semantic search, trained on 427k human relevance judgments.",
+    kicker: "Self-hosted semantic search that runs on CPU, with no per-query fees.",
     body:
       "A retriever and a cross-encoder reranker fine-tuned on Amazon’s ESCI data, so that a query like “pan that doesnt stick eggs” finds the right product. Both run on CPU with no per-query fees; the repository is the whole factory — every training script, eval and chart. Five open artifacts, including a 31 MB static model for edge deployment.",
-    metric: { value: "427,655", label: "human relevance judgments" },
-    receipt: ["nDCG@10 0.748", "2,100 q/s retrieval on CPU", "45 ms rerank", "$2.20 total GPU spend"],
+    metric: { value: "2,100 q/s", label: "retrieval on a laptop CPU" },
+    receipt: ["nDCG@10 0.748 held-out", "45 ms rerank", "5 open artifacts", "$2.20 total GPU spend"],
     stack: ["sentence-transformers", "cross-encoder", "ONNX", "model2vec"],
     links: [
       { label: "GitHub", href: "https://github.com/albertobarnabo/product-search-embeddings" },
@@ -214,6 +214,7 @@ export const ARTIFACTS: Artifact[] = [
 
 export const SNAPSHOT = {
   date: "2026-09-10",
+  repos: 32,
   stars: {
     "albertobarnabo/lazy-cat": 50,
     "albertobarnabo/opal-zero": 7,

@@ -8,6 +8,8 @@ export type Stats = {
   modelCount: number;
   datasetCount: number;
   stars: Record<string, number>;
+  /** public repositories on GitHub */
+  repos: number;
   /** true when at least the Hugging Face numbers came from the API */
   live: boolean;
 };
@@ -23,6 +25,12 @@ async function hfList(kind: "models" | "datasets"): Promise<HfRow[]> {
   return (await r.json()) as HfRow[];
 }
 
+async function ghRepos(user: string): Promise<number> {
+  const r = await fetch(`https://api.github.com/users/${user}`, { ...REVALIDATE, headers: { Accept: "application/vnd.github+json" } });
+  if (!r.ok) throw new Error(`GH user ${r.status}`);
+  return ((await r.json()) as { public_repos: number }).public_repos;
+}
+
 async function ghStars(repo: string): Promise<number> {
   const r = await fetch(`https://api.github.com/repos/${repo}`, {
     ...REVALIDATE,
@@ -35,23 +43,24 @@ async function ghStars(repo: string): Promise<number> {
 function fromSnapshot(): Stats {
   const downloads: Record<string, number> = {};
   for (const a of ARTIFACTS) downloads[a.id] = a.downloads;
-  return finish(downloads, { ...SNAPSHOT.stars }, false);
+  return finish(downloads, { ...SNAPSHOT.stars }, SNAPSHOT.repos, false);
 }
 
-function finish(downloads: Record<string, number>, stars: Record<string, number>, live: boolean): Stats {
+function finish(downloads: Record<string, number>, stars: Record<string, number>, repos: number, live: boolean): Stats {
   let modelDownloads = 0, datasetDownloads = 0, modelCount = 0, datasetCount = 0;
   for (const [id, n] of Object.entries(downloads)) {
     if (id.startsWith("models/")) { modelDownloads += n; modelCount++; }
     else { datasetDownloads += n; datasetCount++; }
   }
-  return { downloads, modelDownloads, datasetDownloads, modelCount, datasetCount, stars, live };
+  return { downloads, modelDownloads, datasetDownloads, modelCount, datasetCount, stars, repos, live };
 }
 
 /** Live numbers from Hugging Face + GitHub, with per-source fallback to the snapshot in data/site.ts. */
 export async function getStats(): Promise<Stats> {
-  const [models, datasets, ...starResults] = await Promise.allSettled([
+  const [models, datasets, reposResult, ...starResults] = await Promise.allSettled([
     hfList("models"),
     hfList("datasets"),
+    ghRepos("albertobarnabo"),
     ...Object.keys(SNAPSHOT.stars).map((repo) => ghStars(repo).then((n) => [repo, n] as const)),
   ]);
 
@@ -64,7 +73,8 @@ export async function getStats(): Promise<Stats> {
   const stars: Record<string, number> = { ...SNAPSHOT.stars };
   for (const s of starResults) if (s.status === "fulfilled") stars[s.value[0]] = s.value[1];
 
-  return finish(downloads, stars, true);
+  const repos = reposResult.status === "fulfilled" ? reposResult.value : SNAPSHOT.repos;
+  return finish(downloads, stars, repos, true);
 }
 
 export const fmt = (n: number) => new Intl.NumberFormat("en-US").format(n);
