@@ -201,7 +201,7 @@ export const MORE: Minor[] = [
   { title: "MenuGen", tag: "Next.js", body: "A menu spreadsheet in, batch AI food photography out — with the cost shown before you generate.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/MenuGen" }], thumb: "/work/menugen.png", thumbAlt: "MenuGen’s compose screen" },
   { title: "plasmodio", tag: "Simulation", body: "A slime mould redraws Italy. Agent-based simulation in the browser.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/plasmodio" }, { label: "Demo", href: "https://huggingface.co/spaces/albertobarnabo/plasmodio" }], thumb: "/work/plasmodio.png", thumbAlt: "plasmodio: a slime-mould simulation redrawing the map of Italy" },
   { title: "orbis", tag: "Swift", body: "A native globe for the countries you’ve lived in, visited, passed through.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/orbis" }], thumb: "/work/orbis.jpg", thumbAlt: "orbis: a globe showing visited countries" },
-  { title: "InterVous", tag: "LLM", body: "Parses a job application out of a posting URL.", links: [{ label: "Live", href: "https://albertobarnabo.com/intervous" }], thumb: "/intervous_logo.svg", thumbAlt: "InterVous logo", logo: true },
+  { title: "InterVous", tag: "LLM", body: "Parses a job application out of a posting URL.", links: [{ label: "Live", href: "https://albertobarnabo.com/intervous" }], thumb: "/work/intervous.svg", thumbAlt: "InterVous logo", logo: true },
 ];
 
 export type Artifact = {
