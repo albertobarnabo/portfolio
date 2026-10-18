@@ -27,7 +27,7 @@ export type LinkKind = "GitHub" | "Hugging Face" | "Dataset" | "Demo" | "Site" |
 export type Link = { label: LinkKind; href: string };
 
 export type Metric = { value?: string; live?: "hf" | "stars"; label: string };
-export type Art = { src: string; alt: string; aspect: string; position?: string; hover?: string; fit?: "cover" | "contain" };
+export type Art = { src: string; alt: string; aspect: string; position?: string; hover?: string; fit?: "cover" | "contain"; bg?: string; pad?: boolean };
 
 export type Featured = {
   slug: string;
@@ -52,8 +52,24 @@ export type Featured = {
 
 export const FEATURED: Featured[] = [
   {
-    slug: "product-search",
+    slug: "bge-m3-italian",
     num: "01",
+    tag: "Retrieval · Italian",
+    role: "Author",
+    title: "bge-m3-italian",
+    kicker: "Italian retrieval fine-tuned from bge-m3 — a drop-in replacement that beats the base model in hybrid search.",
+    body:
+      "Same 1024 dimensions, same 8192-token context, all three heads — dense, sparse and ColBERT — trained and shipped, so it replaces bge-m3 without changing a line of code. Measured against the base with identical code and a 10,000-sample paired bootstrap on mMARCO-it and MLDR-it; registered on MTEB; ONNX fp32 and int8 builds for Text Embeddings Inference and fastembed, checked against the PyTorch weights.",
+    metric: { value: "+0.055", label: "nDCG@10 over bge-m3 — long documents, hybrid" },
+    receipt: ["dense + sparse + ColBERT", "mMARCO-it · MLDR-it · MTEB", "ONNX fp32 / int8", "right answer at #1: 62.5% → 66%"],
+    stack: ["sentence-transformers", "bge-m3", "FlagEmbedding", "ONNX"],
+    links: [{ label: "Hugging Face", href: "https://huggingface.co/albertobarnabo/bge-m3-italian" }],
+    art: { src: "/work/bge-m3-italian.png", alt: "nDCG@10 on Italian retrieval: bge-m3-italian versus BAAI/bge-m3 on short passages and long documents", aspect: "1768/662", fit: "contain", bg: "#f4f1ea", pad: true },
+    hf: ["models/albertobarnabo/bge-m3-italian"],
+  },
+  {
+    slug: "product-search",
+    num: "02",
     tag: "Retrieval",
     role: "Author",
     title: "E-commerce product search",
@@ -79,7 +95,7 @@ export const FEATURED: Featured[] = [
   },
   {
     slug: "fiduciary",
-    num: "02",
+    num: "03",
     tag: "Fine-tuning",
     role: "Author",
     title: "Fiduciary",
@@ -103,7 +119,7 @@ export const FEATURED: Featured[] = [
   },
   {
     slug: "burocrazia",
-    num: "03",
+    num: "04",
     tag: "Document AI",
     role: "Author",
     title: "BurocrazIA",
@@ -124,7 +140,7 @@ export const FEATURED: Featured[] = [
   },
   {
     slug: "receipts",
-    num: "04",
+    num: "05",
     tag: "Synthetic data",
     role: "Author",
     title: "Synthetic receipts for OCR",
@@ -144,7 +160,7 @@ export const FEATURED: Featured[] = [
   },
   {
     slug: "lazy-cat",
-    num: "05",
+    num: "06",
     tag: "Agent tooling",
     role: "Author",
     title: "lazy-cat",
@@ -171,10 +187,10 @@ export const LEADERBOARD = [
   { type: "F24", docs: 9, f1: 0.343, model: "Qwen2.5‑VL‑7B" },
 ];
 
-export type Minor = { title: string; body: string; tag: string; links: Link[]; thumb?: string; thumbAlt?: string };
+export type Minor = { title: string; body: string; tag: string; links: Link[]; thumb?: string; thumbAlt?: string; logo?: boolean };
 
 export const MORE: Minor[] = [
-  { title: "OpalZero", tag: "Rust", body: "A multi-agent engine in Rust: one plain-English intent in, a typed MissionState out over SSE.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/opal-zero" }, { label: "Site", href: "https://albertobarnabo.com/opal-zero/" }], thumb: "/work/opal-zero.svg", thumbAlt: "OpalZero logo" },
+  { title: "OpalZero", tag: "Rust", body: "A multi-agent engine in Rust: one plain-English intent in, a typed MissionState out over SSE.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/opal-zero" }, { label: "Site", href: "https://albertobarnabo.com/opal-zero/" }], thumb: "/work/opal-zero.svg", thumbAlt: "OpalZero logo", logo: true },
   { title: "Italian Bankruptcy Forecast", tag: "Simulation", body: "Italy from 2025 to 2050, one dot per thousand people — workers, pensioners and everyone else — animated from Eurostat, Istat and INPS data. The watchable face of a larger agent-based simulation.", links: [{ label: "Demo", href: "https://huggingface.co/spaces/albertobarnabo/italian-bankruptcy-forecast" }], thumb: "/work/bankruptcy.jpg", thumbAlt: "Italy in 2025 as three columns of dots: workers, pensioners, everyone else" },
   { title: "tokentropy", tag: "Uncertainty", body: "Claim-level uncertainty scores for streaming LLM output, from top-k log-probabilities alone — no second model.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/tokentropy" }], thumb: "/work/tokentropy-dark.svg", thumbAlt: "Distribution chart of per-claim uncertainty scores" },
   { title: "professor", tag: "Claude skill", body: "Designs an explanation before anything is produced — base → vary → name — with eleven evidence-tagged gates.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/professor" }], thumb: "/work/professor.jpg", thumbAlt: "An old professor in a study full of books" },
@@ -185,7 +201,7 @@ export const MORE: Minor[] = [
   { title: "MenuGen", tag: "Next.js", body: "A menu spreadsheet in, batch AI food photography out — with the cost shown before you generate.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/MenuGen" }], thumb: "/work/menugen.png", thumbAlt: "MenuGen’s compose screen" },
   { title: "plasmodio", tag: "Simulation", body: "A slime mould redraws Italy. Agent-based simulation in the browser.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/plasmodio" }, { label: "Demo", href: "https://huggingface.co/spaces/albertobarnabo/plasmodio" }], thumb: "/work/plasmodio.png", thumbAlt: "plasmodio: a slime-mould simulation redrawing the map of Italy" },
   { title: "orbis", tag: "Swift", body: "A native globe for the countries you’ve lived in, visited, passed through.", links: [{ label: "GitHub", href: "https://github.com/albertobarnabo/orbis" }], thumb: "/work/orbis.jpg", thumbAlt: "orbis: a globe showing visited countries" },
-  { title: "InterVous", tag: "LLM", body: "Parses a job application out of a posting URL.", links: [{ label: "Live", href: "https://albertobarnabo.com/intervous" }], thumb: "/intervous_logo.png", thumbAlt: "InterVous logo" },
+  { title: "InterVous", tag: "LLM", body: "Parses a job application out of a posting URL.", links: [{ label: "Live", href: "https://albertobarnabo.com/intervous" }], thumb: "/intervous_logo.svg", thumbAlt: "InterVous logo", logo: true },
 ];
 
 export type Artifact = {
@@ -198,6 +214,7 @@ export type Artifact = {
 };
 
 export const ARTIFACTS: Artifact[] = [
+  { id: "models/albertobarnabo/bge-m3-italian", name: "bge-m3-italian", kind: "model", task: "Italian retrieval · dense + sparse + ColBERT", base: "bge-m3, 568M", downloads: 562 },
   { id: "models/albertobarnabo/fiduciary-qwen3-4b", name: "fiduciary-qwen3-4b", kind: "model", task: "financial advisor · text generation", base: "Qwen3-4B, 4-bit MLX", downloads: 8697 },
   { id: "models/albertobarnabo/ecommerce-product-search-embeddings", name: "ecommerce-product-search-embeddings", kind: "model", task: "product retrieval · embeddings", base: "bge-small, 33M", downloads: 650 },
   { id: "models/albertobarnabo/ecommerce-product-search-reranker", name: "ecommerce-product-search-reranker", kind: "model", task: "product reranking · cross-encoder", base: "MiniLM, 33M", downloads: 381 },

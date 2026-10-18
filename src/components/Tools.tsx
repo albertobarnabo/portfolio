@@ -11,7 +11,7 @@ function Thumb({ m }: { m: Minor }) {
     );
   }
   if (m.thumb.endsWith(".svg")) {
-    const logo = m.thumb.includes("opal-zero");
+    const logo = m.logo;
     return (
       <div className={`flex h-full w-full items-center justify-center ${logo ? "p-10" : ""}`}>
         {/* SVG assets are served as-is; next/image would refuse to optimise them */}

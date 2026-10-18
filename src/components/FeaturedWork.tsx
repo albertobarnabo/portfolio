@@ -43,13 +43,13 @@ function Art({ p }: { p: Featured }) {
   if (p.leaderboard || !p.art) return <Leaderboard />;
   const a = p.art;
   return (
-    <div className="frame relative" style={{ aspectRatio: a.aspect }}>
+    <div className={`frame relative ${a.pad ? "p-5 md:p-7" : ""}`} style={{ aspectRatio: a.aspect, background: a.bg }}>
       <Image
         src={a.src}
         alt={a.alt}
         fill
         sizes="(min-width: 768px) 58vw, 100vw"
-        className={`${a.fit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-[900ms] ease-out group-hover:scale-[1.02]`}
+        className={`${a.fit === "contain" ? "object-contain" : "object-cover"} ${a.pad ? "!static" : ""} transition-transform duration-[900ms] ease-out group-hover:scale-[1.02]`}
         style={a.position ? { objectPosition: a.position } : undefined}
       />
       {a.hover && (
@@ -130,7 +130,7 @@ export default function FeaturedWork({ stats }: { stats: Stats }) {
           <span className="text-accent">01</span> — Selected work
         </p>
         <h2 id="work-h" className="font-display mt-4 max-w-[20ch] text-h2">
-          Five things I built, and the numbers behind them.
+          Six things I built, and the numbers behind them.
         </h2>
       </Reveal>
       <div className="mt-10">
